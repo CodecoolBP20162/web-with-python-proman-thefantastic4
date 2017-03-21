@@ -22,13 +22,33 @@ function LocalStorageState() {
 
         if (chosen_board !== null) {
             chosen_board = JSON.parse(chosen_board);
-            return chosen_board.id;
+            console.log(chosen_board);
+            card_ids = chosen_board.card_order.split(";");
+            cards_json_string = "[";
+
+            for (var i = 0; i < card_ids.length; i++) {
+                tmp_real_json = JSON.parse(localStorage.getItem("card" + card_ids[i]));
+                tmp_real_json.order = i;
+
+                if (i == card_ids.length - 1) {
+                    cards_json_string += JSON.stringify(tmp_real_json) + "]";
+                    break
+                }
+                cards_json_string += JSON.stringify(tmp_real_json) + ", ";
+            }
+
+            return cards_json_string;
         }
+        return false;
     };
 
-    this.get_card = function(id) {
-        return true;
-    };
+    // BUGGY AS HELL! CARD OBJECT DOESNT HAVE ORDER ATTRIBUTE
+    // this.get_card = function(card_id) {
+    //     if (localStorage.getItem("card" + card_id) === null) {
+    //         return false;
+    //     }
+    //     return localStorage.getItem("card" + card_id);
+    // };
 
     // ADDITIONAL METHODS
     this.get_boards_from_localstorage = function() {
@@ -44,7 +64,42 @@ function LocalStorageState() {
         }
 
         return boards_list_string;
-    }
+    };
+
+    this.create_card = function(board_id) {
+        var id = Date.now();
+        localStorage.setItem("card"+id, '{"id":'+id+', "description":"", "status":"new"}');
+
+        var board_json = this.get_board(board_id);
+        board_json = JSON.parse(board_json);
+        board_json.card_order += ";"+id;
+        board_json = JSON.stringify(board_json);
+        
+        localStorage.setItem("board"+board_id, board_json);
+
+        return true;
+
+    };
+
+    this.create_board = function() {
+        var id = Date.now();
+        localStorage.setItem("board"+id, '{"id":'+id+', "title":"", "card_order":""}');
+        return true;
+    };
+
+    this.modify_card = function(card_id, title, description) {
+        var card_json = JSON.parse(localStorage.getItem("card"+card_id));
+        card_json.title = title;
+        card_json.description = description;
+        localStorage.setItem("card"+card_id, JSON.stringify(card_json));
+        return true;
+    };
+
+    this.modify_board = function(board_id, title) {
+        var board_json = JSON.parse(localStorage.getItem("board"+board_id));
+        board_json.title = title;
+        localStorage.setItem("board"+board_id, JSON.stringify(board_json));
+    };
 }
 
 function PsqlState() {
@@ -61,6 +116,22 @@ function PsqlState() {
     };
 
     this.get_card = function(id) {
+        return "NOT IMPLEMENTED ERROR";
+    };
+
+    this.create_card = function(board_id) {
+        return "NOT IMPLEMENTED ERROR";
+    };
+
+    this.create_board = function() {
+        return "NOT IMPLEMENTED ERROR";
+    };
+
+    this.modify_card = function(card_id, title, description) {
+        return "NOT IMPLEMENTED ERROR";
+    };
+
+    this.modify_board = function(board_id, title) {
         return "NOT IMPLEMENTED ERROR";
     };
 }
@@ -95,9 +166,25 @@ function DataLoader(state) {
         return this.state.get_card(id);
     };
 
+    this.create_card = function(board_id) {
+        return this.state.create_card(board_id);
+    };
+
+    this.create_board = function() {
+        return this.state.create_board();
+    };
+
+    this.modify_card = function(card_id, title, description) {
+        return this.state.modify_card(card_id, title, description);
+    };
+
+    this.modify_board = function(board_id, title) {
+        return this.state.modify_board(board_id, title);
+    };
+
     this.state = state;
     this.instantiate_state();
 }
 
 var data_loader = new DataLoader("localstorage");
-console.log(data_loader.get_all_boards());
+// console.log(data_loader.get_all_boards());
