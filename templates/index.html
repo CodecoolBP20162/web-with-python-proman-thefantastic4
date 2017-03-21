@@ -5,73 +5,79 @@
     <meta charset="UTF-8">
     <title>BOARD</title>
     <!--Title of the page by the actual BOARD -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href='/static/css/style.css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href='../static/css/style.css'>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <script src="/static/js/button_functions.js"></script>
     <script src="/static/js/DataLoader.js"></script>
-    <script src="/static/js/cards.js"></script>
-    <script src="static/js/dragndrop.js"></script>>
+    <!--<script src="/static/js/cards.js"></script>-->
+    <script src="static/js/dragndrop.js"></script>
 </head>
 
 <body>
-<div>
-    <p>DUMMY NAVBAR</p>
-</div>
-<div>
-    <p>DUMMY SIDEBAR LEFT ALIGNED, HIDDEN AT START</p>
-</div>
-<div class="container-fluid">
-<!-- You can check the structure by this four, but these divs will be generated automatically -->
-    <div class="row">
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div1" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
 
-            <div class="card">
-                <p>card1</p>
-                <textarea rows="1" cols="20">title</textarea>
-                <br>
-                <textarea rows="6" cols="20">text</textarea>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">DUMMY BOARD TITLE</a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<span onclick="openNav()"><button id="open-button" class="sidebar-open-button glyphicon glyphicon-menu-right"></button></span>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+    <div class="container">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class=" col-lg-1">
+                <a class="navbar-brand" href="#">
+                    <div class="img-wrapper">
+                        <img class="logo" alt="Brand" src="../static/img/f4.png" style="height: 40px; width: auto; ">
+                    </div>
+                </a>
+            </div>
+            <div class=" col-lg-10">
+
+                <p class="board-title">BOARD TITLE VARIABLE</p>
+            </div>
+            <div class="navbar-right">
+                <div class="col-lg-1">
+                    <button type="button" class="btn btn-default navbar-btn"><span
+                            class="login-icon glyphicon glyphicon-log-in"
+                            aria-hidden="true"></span> Login
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div id="div2" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
-             <div class="card">
-                <p>card1</p>
-                <textarea rows="1" cols="20">title</textarea>
-                <br>
-                <textarea rows="6" cols="20">text</textarea>
+        <div class="container">
+            <!-- You can check the structure by this four, but these divs will be generated automatically -->
+            <div class="row">
+                <div class=" col-md-3">
+                    <div class="card">
+                        <p>DUMMY CARD</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="div3" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
-             <div class="card">
-                <p>card1</p>
-                <textarea rows="1" cols="20">title</textarea>
-                <br>
-                <textarea rows="6" cols="20">text</textarea>
-            </div>
-        </div>
-        <div id="div4" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
-             <div class="card">
-                <p>card1</p>
-                <textarea rows="1" cols="20">title</textarea>
-                <br>
-                <textarea rows="6" cols="20">text</textarea>
-            </div>
-        </div>
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
     </div>
+</div>
 </body>
 
 <footer>
 </footer>
+<script>
+
+
+</script>
 
 </html>
