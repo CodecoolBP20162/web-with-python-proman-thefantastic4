@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href='../css/style.css'>
+    <link rel="stylesheet" type="text/css" href='/static/css/style.css'>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -19,13 +19,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="static/js/dragndrop.js"></script>>
 </head>
+
 <style>
     #card {
 
+    border: 1px solid black;
+    background-color: aqua;
+    height: 100px;
+}
+
+#cardbg {
+
+    border: 1px solid black;
     background-color: white;
     height: 250px;
     width: 320px;
-</style>}
+}
+</style>
 <body>
 <div>
     <p>DUMMY NAVBAR</p>
@@ -36,10 +46,10 @@
 <div class="container-fluid">
 <!-- You can check the structure by this four, but these divs will be generated automatically -->
     <div class="row">
-        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         <div id="div1" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
 
             <div class="card">
@@ -74,6 +84,10 @@
                 <textarea rows="6" cols="20">text</textarea>
             </div>
         </div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     </div>
 </div>
 
