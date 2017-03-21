@@ -17,7 +17,16 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/dragndrop.js"></script>>
 </head>
+<style>
+    #card {
+
+    border: 1px solid black;
+    background-color: aqua;
+    height: 250px;
+    width: 320px;
+</style>}
 <body>
 <div>
     <p>DUMMY NAVBAR</p>
@@ -28,24 +37,42 @@
 <div class="container-fluid">
 <!-- You can check the structure by this four, but these divs will be generated automatically -->
     <div class="row">
-        <div class=" col-md-3">
+        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="div1" class=" col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
+
             <div class="card">
                 <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
             </div>
         </div>
-        <div class="col-md-3">
+
+        <div id="div2" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
              <div class="card">
                 <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
             </div>
         </div>
-        <div class="col-md-3">
+        <div id="div3" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
              <div class="card">
                 <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
             </div>
         </div>
-        <div class="col-md-3">
+        <div id="div4" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
              <div class="card">
                 <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
             </div>
         </div>
     </div>
