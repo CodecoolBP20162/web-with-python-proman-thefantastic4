@@ -71,3 +71,4 @@ function DataLoader(state) {
 
 var data_loader = new DataLoader("localstorage");
 // console.log(data_loader.get_all_boards());
+JSON.parse();
