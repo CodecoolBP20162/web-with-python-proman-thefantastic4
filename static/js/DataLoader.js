@@ -160,6 +160,7 @@ function DataLoader(state) {
 
     this.get_all_cards = function(board_id) {
         return this.state.get_all_cards(board_id);
+
     };
 
     this.get_card = function(id) {
@@ -187,4 +188,3 @@ function DataLoader(state) {
 }
 
 var data_loader = new DataLoader("localstorage");
-// console.log(data_loader.get_all_boards());
