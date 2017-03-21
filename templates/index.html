@@ -3,58 +3,75 @@
 
 <head>
     <meta charset="UTF-8">
-
     <title>BOARD</title>
     <!--Title of the page by the actual BOARD -->
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href='/static/css/style.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href='../css/style.css'>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="/static/js/DataLoader.js"></script>
     <script src="/static/js/cards.js"></script>
+    <script src="static/js/dragndrop.js"></script>>
 </head>
 
 <body>
-    <div>
-        <p>DUMMY NAVBAR</p>
-    </div>
-    <div>
-        <p>DUMMY SIDEBAR LEFT ALIGNED, HIDDEN AT START</p>
-    </div>
-    <div class="container-fluid">
-        <!-- You can check the structure by this four, but these divs will be generated automatically -->
-        <div class="row">
-            <div class=" col-md-3">
-                <div class="card">
-                    <p>card1</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <p>card1</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <p>card1</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <p>card1</p>
-                </div>
+<div>
+    <p>DUMMY NAVBAR</p>
+</div>
+<div>
+    <p>DUMMY SIDEBAR LEFT ALIGNED, HIDDEN AT START</p>
+</div>
+<div class="container-fluid">
+<!-- You can check the structure by this four, but these divs will be generated automatically -->
+    <div class="row">
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div1" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+            <div class="card">
+                <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
             </div>
         </div>
+
+        <div id="div2" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
+             <div class="card">
+                <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
+            </div>
+        </div>
+        <div id="div3" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
+             <div class="card">
+                <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
+            </div>
+        </div>
+        <div id="div4" class="col-md-3"  draggable="true" ondragstart="drag(event)" width="336" height="69">
+             <div class="card">
+                <p>card1</p>
+                <textarea rows="1" cols="20">title</textarea>
+                <br>
+                <textarea rows="6" cols="20">text</textarea>
+            </div>
+        </div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class = "col-md-3" id="cardbg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     </div>
-
 </body>
-<footer>
 
+<footer>
 </footer>
 
 </html>
