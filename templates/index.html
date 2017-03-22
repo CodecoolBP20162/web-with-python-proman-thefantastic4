@@ -15,11 +15,13 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href='../static/css/style.css'>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
     <script src="/static/js/button_functions.js"></script>
     <script src="/static/js/DataLoader.js"></script>
+    <script src="/static/js/sortable_lists.js"></script>
     <!--<script src="/static/js/cards.js"></script>-->
     <script src="static/js/dragndrop.js"></script>
 </head>
@@ -59,32 +61,87 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="fixed-container container">
             <!-- You can check the structure by this four, but these divs will be generated automatically -->
-            <div class="row">
+            <div id="card-lists-headers" class="row">
                 <div id="new" class="col-md-3">
-
                     <h2>NEW</h2>
-                    <div id="empty_card" class="card">
-                        <div class="card-title">
-                            <input class="title-input" type="text" placeholder="card title" maxlength="14">
-                        </div>
-                        <div class="card-description">
-                            <textarea class="task" rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
                 </div>
-                <div id="in-progress" class="col-md-3"><h2>IN PROGRESS</h2></div>
-                <div id="review" class="col-md-3"><h2>REVIEW</h2>
-                                    <div id="empty_card" class="card">
-                        <div class="card-title">
-                            <input class="title-input" type="text" placeholder="card title" maxlength="14">
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div></div>
-                <div id="done" class="col-md-3"><h2>DONE</h2></div>
+                <div id="in-progress" class="col-md-3">
+                    <h2>IN PROGRESS</h2>
+                </div>
+                <div id="review" class="col-md-3">
+                    <h2>REVIEW</h2>
+                </div>
+                <div id="done" class="col-md-3">
+                    <h2>DONE</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="card-lists" class="row">
+                <div id="new-cards" class="col-md-3">
+
+
+                    <ul class="sortable">
+
+                        <li id="1.1">
+                            <div id="empty_card" class="card">
+                                <div class="card-title">
+                                    <input class="title-input" type="text" placeholder="card title" maxlength="14">
+                                </div>
+                                <div class="card-description">
+                                    <textarea class="task" rows="2" cols="20" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="1.2">
+                            <div id="empty_card" class="card">
+                                <div class="card-title">
+                                    <input class="title-input" type="text" placeholder="card title" maxlength="14">
+                                </div>
+                                <div class="card-description">
+                                    <textarea class="task" rows="2" cols="20" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="1.3">
+                            <div id="empty_card" class="card">
+                                <div class="card-title">
+                                    <input class="title-input" type="text" placeholder="card title" maxlength="14">
+                                </div>
+                                <div class="card-description">
+                                    <textarea class="task" rows="2" cols="20" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="in-progress-cards" class="col-md-3">
+                    <ul class="sortable">
+
+                    </ul>
+                </div>
+                <div id="review-cards" class="col-md-3">
+                    <ul class="sortable">
+                        <li id="1.1">
+                            <div id="empty_card" class="card">
+                                <div class="card-title">
+                                    <input class="title-input" type="text" placeholder="card title" maxlength="14">
+                                </div>
+                                <div class="card-description">
+                                    <textarea rows="2" cols="20" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="done-cards" class="col-md-3">
+                    <ul class="sortable">
+
+                    </ul>
+                </div>
+
 
             </div>
         </div>
@@ -103,17 +160,17 @@
 <script>
     var textarea = document.querySelector('textarea');
 
-textarea.addEventListener('keydown', autosize);
+    textarea.addEventListener('keydown', autosize);
 
-function autosize(){
-  var el = this;
-  setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    // for box-sizing other than "content-box" use:
-    // el.style.cssText = '-moz-box-sizing:content-box';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
-  },0);
-}
+    function autosize() {
+        var el = this;
+        setTimeout(function () {
+            el.style.cssText = 'height:auto; padding:0';
+            // for box-sizing other than "content-box" use:
+            // el.style.cssText = '-moz-box-sizing:content-box';
+            el.style.cssText = 'height:' + el.scrollHeight + 'px';
+        }, 0);
+    }
 </script>
 
 </html>

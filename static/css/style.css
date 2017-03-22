@@ -20,6 +20,25 @@ body {
     overflow: auto;
 }
 
+.fixed-container {
+
+    position: fixed;
+
+}
+
+ul{
+
+    min-height: 20px;
+}
+li {
+    min-height: auto;
+    list-style-type: none;
+}
+#card-lists {
+
+    margin-top: 70px;
+}
+
 .card {
 
     border: none;
@@ -28,7 +47,7 @@ body {
     background: -o-linear-gradient(#129cff, rgba(223, 255, 253, 0.7)); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#129cff, rgba(223, 255, 253, 0.7)); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#129cff, rgba(223, 255, 253, 0.7)); /* Standard syntax */
-    height: 120px;
+    min-height: auto;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -43,16 +62,23 @@ body {
     transition: box-shadow 0.5s;
 }
 
-textarea {
+.fixed-container {
 
+    position: fixed;
+
+}
+
+textarea {
+    border: none;
     border-radius: 5px;
     text-align: left;
     background-color: rgba(250, 235, 215, 0.51);
-    resize: vertical;
-    overflow: auto;
+    resize: none;
+    overflow: hidden;
     color: #575757;
     font-size: medium;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    margin-bottom: 30px;
 }
 
 textarea::-webkit-input-placeholder {
