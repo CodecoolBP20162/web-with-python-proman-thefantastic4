@@ -17,6 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href='../static/css/style.css'>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
     <script src="/static/js/button_functions.js"></script>
     <script src="/static/js/DataLoader.js"></script>
     <!--<script src="/static/js/cards.js"></script>-->
@@ -62,70 +63,57 @@
             <!-- You can check the structure by this four, but these divs will be generated automatically -->
             <div class="row">
                 <div id="new" class="col-md-3">
-<div>NEW</div>
+
+                    <h2>NEW</h2>
                     <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
                         <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
+                            <input class="title-input" type="text" placeholder="card title" maxlength="14">
+                        </div>
+                        <div class="card-description">
+                            <textarea class="task" rows="1" cols="20" placeholder="write a task"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div id="in-progress" class="col-md-3"><h2>IN PROGRESS</h2></div>
+                <div id="review" class="col-md-3"><h2>REVIEW</h2>
+                                    <div id="empty_card" class="card">
+                        <div class="card-title">
+                            <input class="title-input" type="text" placeholder="card title" maxlength="14">
                         </div>
                         <div class="card-description">
                             <textarea rows="1" cols="20" placeholder="write a task"></textarea>
                         </div>
-                    </div>
+                    </div></div>
+                <div id="done" class="col-md-3"><h2>DONE</h2></div>
 
-                </div>
-                 <div id="in-progress" class="col-md-3">
-                     <div>IN PROGRESS</div>
-
-                    <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
-                        <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
-
-                </div>
-                 <div id="review" class="col-md-3">
-<div>REVIEW</div>
-                    <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
-                        <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
-
-                </div>
-                 <div id="done" class="col-md-3">
-<div>DONE</div>
-                    <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
-                        <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
-
     </div>
 </div>
+
 </body>
 
 <footer>
+
+    <button id="add-button" type="button" class="btn btn-default"><span id="add-icon"
+                                                                        class="glyphicon glyphicon-plus"></span>
+    </button>
+
 </footer>
 <script>
+    var textarea = document.querySelector('textarea');
 
+textarea.addEventListener('keydown', autosize);
 
+function autosize(){
+  var el = this;
+  setTimeout(function(){
+    el.style.cssText = 'height:auto; padding:0';
+    // for box-sizing other than "content-box" use:
+    // el.style.cssText = '-moz-box-sizing:content-box';
+    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+  },0);
+}
 </script>
 
 </html>
