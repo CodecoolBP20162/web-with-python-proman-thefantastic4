@@ -42,7 +42,16 @@ $(document).ready(function(){
         var all_cards = data_loader.get_all_cards(board.id);
         all_cards = JSON.parse(all_cards);
         
+        data_loader.set_active_board(board.id);
+        var active_board = data_loader.get_active_board();
+
         //fill_with_cards(all_cards);
         status_checker(all_cards);
     });
+
+    $('#add-button').click(function(){
+        var new_card = data_loader.create_card(active_board);
+        var empty_card = $('#1');
+        empty_card.clone().appendTo('#new-cards .sortable');
+
 });
