@@ -23,16 +23,18 @@
     <script src="/static/js/sortable_lists.js"></script>
     <script src="/static/js/textarea_resize.js"></script>
     <script src="/static/js/cards.js"></script>
-    <script src="static/js/dragndrop.js"></script>
+    <script src="/static/js/status_settr.js"></script>
+
 </head>
 
 <body>
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div id="10000"><a href="#">STARTER BOARD</a></div>
     <a href="#">DUMMY BOARD</a>
     <a href="#">DUMMY BOARD</a>
+    <a href="#">DUMMY BOARD</a>
+    <a href="javascript:void(0)" class="addbtn">+</a>
 </div>
 
 <!-- Use any element to open the sidenav -->
@@ -65,11 +67,14 @@
                         <li id="1">
                             <div class="card">
                                 <div class="card-title">
+
                                     <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
                                 </div>
 
                                 <div class="card-description">
-                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+                                    <textarea class="task" spellcheck=false rows="1"
+                                              placeholder="write a task"></textarea>
+
                                 </div>
                             </div>
                         </li>
@@ -82,11 +87,15 @@
                         <li id="2">
                             <div class="card">
                                 <div class="card-title">
-                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
+
+                                    <textarea class="title-input" spellcheck=false rows="1"
+                                              placeholder="card title"></textarea>
                                 </div>
 
                                 <div class="card-description">
-                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+                                    <textarea class="task" spellcheck=false rows="1"
+                                              placeholder="write a task"></textarea>
+
                                 </div>
                             </div>
                         </li>
@@ -98,11 +107,14 @@
                         <li id="3">
                             <div class="card">
                                 <div class="card-title">
+
+
                                     <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
                                 </div>
 
                                 <div class="card-description">
                                     <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+
                                 </div>
                             </div>
                         </li>
@@ -116,11 +128,13 @@
                         <li id="4">
                             <div class="card">
                                 <div class="card-title">
+
                                     <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
                                 </div>
 
                                 <div class="card-description">
                                     <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+
                                 </div>
                             </div>
                         </li>
@@ -139,7 +153,14 @@
 <footer>
 
     <button id="add-button" title="Add new card" type="button" class="btn btn-default"><span id="add-icon"
-                                                                        class="glyphicon glyphicon-plus"></span>
+
+                                                                                             class="glyphicon glyphicon-plus"></span>
+    </button>
+
+    <button id="trash-button" title="Delete board" type="button" class="btn btn-default"><span id="trash-icon"
+                                                                                               class="glyphicon glyphicon-trash"></span>
+
+
     </button>
 
 </footer>
@@ -149,4 +170,6 @@
 </script>
 
 
+
 </html>
+

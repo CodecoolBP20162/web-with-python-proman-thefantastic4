@@ -1,5 +1,5 @@
 function LocalStorageState() {
-
+  
     // COMMON METHODS
     this.get_all_boards = function() {
         if (localStorage.getItem("boards") === null) {
@@ -249,7 +249,6 @@ function LocalStorageState() {
         return true;
     };
 
-
 }
 
 function PsqlState() {
@@ -310,7 +309,6 @@ function DataLoader(state) {
 
     this.get_all_cards = function(board_id) {
         return this.state.get_all_cards(board_id);
-
     };
 
     this.get_card = function(id) {
