@@ -126,11 +126,6 @@ textarea {
     background-color: transparent;
 }
 
-textarea .task {
-
-    margin-bottom: 5px;
-}
-
 textarea::-webkit-input-placeholder {
     color: rgba(153, 153, 153, 0.64);
 }
@@ -362,8 +357,6 @@ button {
     margin-left: 3px;
 
 }
-
-
 
 .card-description {
 
