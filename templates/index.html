@@ -22,19 +22,17 @@
     <script src="/static/js/DataLoader.js"></script>
     <script src="/static/js/sortable_lists.js"></script>
     <script src="/static/js/textarea_resize.js"></script>
+    <script src="/static/js/init_boards.js"></script>
+
     <script src="/static/js/cards.js"></script>
     <script src="/static/js/status_settr.js"></script>
-
 </head>
 
 <body>
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">DUMMY BOARD</a>
-    <a href="#">DUMMY BOARD</a>
-    <a href="#">DUMMY BOARD</a>
-    <a href="javascript:void(0)" class="addbtn">+</a>
+    <a href="javascript:void(0)" id ="add-board"  class="addbtn">+</a>
 </div>
 
 <!-- Use any element to open the sidenav -->
@@ -63,61 +61,18 @@
                 <div id="new-cards" class="col-md-3">
                     <h2 id="new">NEW</h2>
                     <ul class="sortable">
-
-                        <li id="1">
-                            <div class="card">
-                                <div class="card-title">
-
-                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
-                                </div>
-
-                                <div class="card-description">
-                                    <textarea class="task" spellcheck=false rows="1"
-                                              placeholder="write a task"></textarea>
-
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
                 <div id="in-progress-cards" class="col-md-3">
                     <h2 id="in-progress">IN PROGRESS</h2>
                     <ul class="sortable">
 
-                        <li id="2">
-                            <div class="card">
-                                <div class="card-title">
-
-                                    <textarea class="title-input" spellcheck=false rows="1"
-                                              placeholder="card title"></textarea>
-                                </div>
-
-                                <div class="card-description">
-                                    <textarea class="task" spellcheck=false rows="1"
-                                              placeholder="write a task"></textarea>
-
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
                 <div id="review-cards" class="col-md-3">
                     <h2 id="review">REVIEW</h2>
                     <ul class="sortable">
-                        <li id="3">
-                            <div class="card">
-                                <div class="card-title">
-
-
-                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
-                                </div>
-
-                                <div class="card-description">
-                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
-
-                                </div>
-                            </div>
-                        </li>
+                        
                     </ul>
                 </div>
 
@@ -125,19 +80,6 @@
                     <h2 id="done">DONE</h2>
                     <ul class="sortable">
 
-                        <li id="4">
-                            <div class="card">
-                                <div class="card-title">
-
-                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
-                                </div>
-
-                                <div class="card-description">
-                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
-
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -162,6 +104,21 @@
 
 
     </button>
+
+    <li id="1" style="display: none;">
+        <div class="card">
+            <div class="card-title">
+
+                <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
+            </div>
+
+            <div class="card-description">
+                <textarea class="task" spellcheck=false rows="1"
+                            placeholder="write a task"></textarea>
+
+            </div>
+        </div>
+    </li>
 
 </footer>
 

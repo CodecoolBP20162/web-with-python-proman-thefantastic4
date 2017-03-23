@@ -1,27 +1,19 @@
 /**
  * Created by petya on 2017.03.23..
  */
+var status_settr = function (grandchild) {
 
-$(document).ready(function() {
+    var grandparent = grandchild.parent().parent();
 
-    var status_settr = function (grandchild) {
+    return grandparent.attr('id').slice(0, -6);
 
-        var grandparent = grandchild.parent().parent();
+};
 
-        return grandparent.attr('id');
+var index_check = function (element) {
 
-    };
-        console.log('Ő ( ' + status_settr($('#1')) + ') a papám.')
+    var listItem = $( element );
 
-        var index_check = function (element) {
+    return $("#"+status_settr(element)+"-cards li" ).index( listItem );
 
-            var listItem = $( element );
-
-            return $( "li" ).index( listItem ) +1;
-
-
-    };
-        console.log('En az ' + index_check('#1') + '. gyerek vagyok.')
-
-});
+};
 
