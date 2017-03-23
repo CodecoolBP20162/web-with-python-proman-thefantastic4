@@ -27,7 +27,7 @@ $(document).ready(function(){
         empty_description.html(all_cards[card].description);
         empty_card.clone().appendTo(where);
     }
-    
+
     $('.board-title').click(function(){
         //var data_loader = new DataLoader("localstorage");
         var board_html_id = $(this).attr('id');
