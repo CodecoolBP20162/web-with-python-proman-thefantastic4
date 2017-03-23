@@ -249,6 +249,16 @@ function LocalStorageState() {
         return true;
     };
 
+
+    this.set_active_board = function(board_id) {
+        localStorage.setItem("active_board", board_id);
+        return true;
+    };
+
+    this.get_active_board = function() {
+        return localStorage.getItem("active_board");
+    };
+
 }
 
 function PsqlState() {
