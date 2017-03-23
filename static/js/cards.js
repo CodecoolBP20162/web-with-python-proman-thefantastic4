@@ -53,5 +53,4 @@ $(document).ready(function(){
         var new_card = data_loader.create_card(active_board);
         var empty_card = $('#1');
         empty_card.clone().appendTo('#new-cards .sortable');
-
 });

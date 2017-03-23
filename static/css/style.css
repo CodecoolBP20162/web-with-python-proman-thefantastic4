@@ -250,6 +250,12 @@ button {
     margin-left: 50px;
 }
 
+.sidenav .addbtn {
+
+    font-size: 50px;
+    top: -30px;
+}
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
@@ -332,6 +338,24 @@ button {
 #add-icon {
     font-size: 50px;
     margin-left: 3px;
+}
+
+#trash-button {
+    background-color: transparent !important;
+    position: fixed;
+    width: 80px;
+    bottom: 0px;
+    left: 85%;
+    text-align: center;
+    height: 80px;
+
+
+}
+
+#trash-icon {
+    font-size: 50px;
+    margin-left: 3px;
+
 }
 
 .card-description {
