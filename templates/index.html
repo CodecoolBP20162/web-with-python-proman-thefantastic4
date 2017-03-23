@@ -8,18 +8,20 @@
     <!--Title of the page by the actual BOARD -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href='/static/css/style.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href='../static/css/style.css'>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
     <script src="/static/js/button_functions.js"></script>
     <script src="/static/js/DataLoader.js"></script>
+    <script src="/static/js/sortable_lists.js"></script>
+    <script src="/static/js/textarea_resize.js"></script>
     <!--<script src="/static/js/cards.js"></script>-->
     <script src="static/js/dragndrop.js"></script>
 </head>
@@ -28,11 +30,13 @@
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">DUMMY BOARD TITLE</a>
+    <a href="#">DUMMY BOARD</a>
+    <a href="#">DUMMY BOARD</a>
+    <a href="#">DUMMY BOARD</a>
 </div>
 
 <!-- Use any element to open the sidenav -->
-<span onclick="openNav()"><button id="open-button" class="sidebar-open-button glyphicon glyphicon-menu-right"></button></span>
+<span onclick="openNav()"><button id="open-button" title="Boards menu" class="sidebar-open-button glyphicon glyphicon-menu-right"></button></span>
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">
@@ -45,74 +49,82 @@
                     </div>
                 </a>
             </div>
-            <div class=" col-lg-10">
+            <div class=" col-lg-11 col-centered">
 
                 <p class="board-title">BOARD TITLE VARIABLE</p>
             </div>
-            <div class="navbar-right">
-                <div class="col-lg-1">
-                    <button type="button" class="btn btn-default navbar-btn"><span
-                            class="login-icon glyphicon glyphicon-log-in"
-                            aria-hidden="true"></span> Login
-                    </button>
-                </div>
-            </div>
         </div>
 
+
         <div class="container">
-            <!-- You can check the structure by this four, but these divs will be generated automatically -->
-            <div class="row">
-                <div id="new" class="col-md-3">
-<div>NEW</div>
-                    <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
-                        <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
+            <div id="card-lists" class="row">
+                <div id="new-cards" class="col-md-3">
+                    <h2 id="new">NEW</h2>
+                    <ul class="sortable">
 
+                        <li id="1.1">
+                            <div class="card">
+                                <div class="card-title">
+                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
+                                </div>
+
+                                <div class="card-description">
+                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                 <div id="in-progress" class="col-md-3">
-                     <div>IN PROGRESS</div>
+                <div id="in-progress-cards" class="col-md-3">
+                    <h2 id="in-progress">IN PROGRESS</h2>
+                    <ul class="sortable">
 
-                    <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
-                        <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
+                        <li id="2.1">
+                            <div class="card">
+                                <div class="card-title">
+                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
+                                </div>
 
+                                <div class="card-description">
+                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                 <div id="review" class="col-md-3">
-<div>REVIEW</div>
-                    <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
-                        <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
+                <div id="review-cards" class="col-md-3">
+                    <h2 id="review">REVIEW</h2>
+                    <ul class="sortable">
+                        <li id="3.1">
+                            <div class="card">
+                                <div class="card-title">
+                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
+                                </div>
 
+                                <div class="card-description">
+                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                 <div id="done" class="col-md-3">
-<div>DONE</div>
-                    <div id="empty_card" class="card">
-                        <p>DUMMY CARD</p>
-                        <div class="card-title">
-                        <textarea rows="1" cols="20" placeholder="title of the card"></textarea>
-                        </div>
-                        <div class="card-description">
-                            <textarea rows="1" cols="20" placeholder="write a task"></textarea>
-                        </div>
-                    </div>
+
+                <div id="done-cards" class="col-md-3">
+                    <h2 id="done">DONE</h2>
+                    <ul class="sortable">
+
+                        <li id="4.1">
+                            <div class="card">
+                                <div class="card-title">
+                                    <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
+                                </div>
+
+                                <div class="card-description">
+                                    <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -120,9 +132,21 @@
     </div>
 
 </div>
+
+
 </body>
 
 <footer>
+
+    <button id="add-button" title="Add new card" type="button" class="btn btn-default"><span id="add-icon"
+                                                                        class="glyphicon glyphicon-plus"></span>
+    </button>
+
 </footer>
+
+<script>
+
+</script>
+
 
 </html>
