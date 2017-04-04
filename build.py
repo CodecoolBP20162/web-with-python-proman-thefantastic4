@@ -5,7 +5,7 @@ class Builder:
     def __init__(self):
         self.tables = [Table, Card, Status]
         self.statuses = ["new", "inprogress", "review", "done"]
-        self.dummy_table = ["starter board", "1234"]
+        self.dummy_table = "starter board"
         self.dummy_cards = [["Story One","content one", "new", 1, "starter board"],                                  ["Story Two", "content two", "new", 2, "starter board"],
                             ["Story Three", "content three", "new", 1, "starter board"]]
 
@@ -22,7 +22,7 @@ class Builder:
         for status in self.statuses:
             Status.create(name=status)
 
-        Table.create(title=self.dummy_table[0], card_order=self.dummy_table[1])
+        Table.create(title=self.dummy_table)
 
         for card in self.dummy_cards:
 
@@ -37,7 +37,7 @@ class Builder:
             elif card[2] == "done":
                 status = Status.select().where(Status.name == "done").get()
 
-            board = Table.select().where(Table.title == self.dummy_table[0])
+            board = Table.select().where(Table.title == self.dummy_table)
 
             Card.create(title=card[0], content=card[1], status=status, order=card[3], board=board)
 

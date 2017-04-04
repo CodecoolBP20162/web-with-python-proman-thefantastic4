@@ -1,6 +1,6 @@
 import os
 from peewee import *
-import traceback
+
 
 def connection():
     f_path = os.path.join(os.path.dirname(__file__), "parameter.txt")
@@ -10,8 +10,6 @@ def connection():
         try:
             db.connect()
             print("Database connection established.")
-            for line in traceback.format_stack():
-                print(line.strip())
         except:
             print("Can't connect to database.\nPlease check your connection.txt file.")
         return db
@@ -26,7 +24,6 @@ class BaseModel(Model):
 
 class Table(BaseModel):
     title = CharField()
-    card_order = CharField()
 
 
 class Status(BaseModel):
@@ -36,8 +33,8 @@ class Status(BaseModel):
 class Card(BaseModel):
     title = TextField()
     content = TextField()
-    status = ForeignKeyField(Status, related_name="status")
+    status = ForeignKeyField(Status)
     order = IntegerField()
-    board = ForeignKeyField(Table, related_name="table")
+    board = ForeignKeyField(Table)
 
 
