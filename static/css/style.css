@@ -1,14 +1,10 @@
 
 body {
 
-    padding-top: 70px;
-    background: url(../img/background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     height: 100%;
-
+	background: white;
+	background: radial-gradient(circle, #fff 10%, #ccc);
+	background-size: cover;
 }
 
 #new, #in-progress, #review, #done {
@@ -50,12 +46,9 @@ li {
 
 .card {
 
-    border: none;
-    background-color: rgba(42, 176, 255, 0.7);
+
+    background-color: rgba(154, 206, 223, 1);
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#129cff, rgba(223, 255, 253, 0.7)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#129cff, rgba(223, 255, 253, 0.7)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#129cff, rgba(223, 255, 253, 0.7)); /* Standard syntax */
     min-height: inherit;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -70,31 +63,24 @@ li {
 
 #in-progress-cards li .card {
 
-    background-color: rgba(255, 5, 7, 0.7);
+    background-color: rgba(252, 169, 133, 0.3);
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#ff3202, rgba(223, 255, 253, 0.7)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#ff3202, rgba(223, 255, 253, 0.7)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#ff3202, rgba(223, 255, 253, 0.7)); /* Standard syntax */
 
 }
 
 #review-cards li .card {
 
-    background-color: rgba(237, 255, 50, 0.7);
+    background-color: rgba(255, 250, 129, 0.3);
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#ff9d06, rgba(223, 255, 253, 0.7)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#ff9d06, rgba(223, 255, 253, 0.7)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#ff9d06, rgba(223, 255, 253, 0.7)); /* Standard syntax */
+
 
 }
 
 #done-cards li .card {
 
-    background-color: rgba(12, 218, 40, 0.7);
+    background-color: rgba(145, 210, 144, 0.3);
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#13ff55, rgba(223, 255, 253, 0.7)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#13ff55, rgba(223, 255, 253, 0.7)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#13ff55, rgba(223, 255, 253, 0.7)); /* Standard syntax */
+
 
 }
 
