@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $('body').on('click', '.remove-card', function(){
-        var card_id = $('li').attr("id");
+        var card_id = alert($(this).closest('li').attr("id"));
         console.log(card_id)
         data_loader.remove_card(card_id);
 
