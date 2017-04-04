@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+    $('body').on('click', '.remove-card', function(){
+        var card_id = $('li').attr("id");
+        console.log(card_id)
+        data_loader.remove_card(card_id);
+
+    });
+
     var status_checker = function(all_cards) {
         var empty_card = $('#1');
         var empty_title = $('#1 .title-input'); 
@@ -75,7 +82,7 @@ $(document).ready(function(){
         if (board_name.trim() != "") {
             var board_id = data_loader.create_board();
             data_loader.modify_board(board_id, board_name);
-            $('<a href="javascript:void(0)" class="menu-link" id="'+board_id+'">' + board_name + '</a>').insertBefore('#add-board');
+            $('<a href="javascript:void(0)" class="menu-link" id="'+board_id+'">' + board_name + '<button value="delete"></a>').insertBefore('#add-board');
             
             $('.menu-link').click(function(){
                 //var data_loader = new DataLoader("localstorage");
@@ -102,7 +109,11 @@ $(document).ready(function(){
         
     });
 
+
+
 });
+
+
 
 
 var modcard = function(card_id) {
@@ -110,3 +121,5 @@ var modcard = function(card_id) {
     var desc = $("#cardtask"+card_id).val();
     data_loader.modify_card(card_id, title, desc);
 };
+
+
