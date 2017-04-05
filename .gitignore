@@ -134,4 +134,5 @@ crashlytics-build.properties
 fabric.properties
 
 .idea/
+parameter.txt
 .vscode/
