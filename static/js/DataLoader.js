@@ -262,16 +262,16 @@ function LocalStorageState() {
 }
 
 function PsqlState() {
+
     this.get_all_boards = function() {
-        var boards_list = ""; 
+        var board_list = "";
         $.ajax({
             url: "/boards",
             type: "GET",
             async: false,
             success: 
                 function (data) {
-                    alert('OK');
-                    alert(data);
+                    alert("all boards: "+data);
                     board_list = data;
                 },
             error: 
@@ -287,80 +287,76 @@ function PsqlState() {
     };
 
 
-    this.get_board = function(action,id) {
-        var board_id = id;
+    this.get_board = function(id) {
+        var board = "";
+
         $.ajax({
             url: "/boards/"+board_id, //restapi-s
             type: "POST",
-            data: {action: action, board_id: id},
+            data: {board_id: id},
             async: false,
-            succes:
+            success:
                 function (response_data) {
-                    alert(response_data);
-        //             // return localStorage.getItem("board" + board_id);
+                    alert("board: "+response_data);
+                    board = response_data;
             },
             error:
                 function () {
                     return false;
             }
         });
-        //return "NOT IMPLEMENTED ERROR";
+
+        return board;
+
     };
 
     this.get_all_cards = function(board_id) {
-        // chosen_board = this.get_board(board_id);
+        var cards = "";
+        $.ajax({
+            url: "/get-cards/" + board_id,
+            type: "GET",
+            async: false,
+            data: {board_id: board_id},
+            success: function (response_data) {
+                alert("cards: " + response_data);
+                cards = response_data;
+            },
+            error: function () {
+                alert("Not OK")
+            }
+        });
 
-        // var board_id = "";
-        // $.ajax({
-        //     url: "",
-        //     type: "GET",
-        //     async: false,
-        //     success: function () {},
-        //     error: function () {}
-        // });
-        return "NOT IMPLEMENTED ERROR";
-                
-
-        // if (chosen_board !== null) {
-        //     chosen_board = JSON.parse(chosen_board);
-        //     card_ids = chosen_board.card_order.split(";");
-
-        //     if (card_ids[0] == "") {
-        //         return false
-        //     }
-
-        //     cards_json_string = "[";
-        //     for (var i = 0; i < card_ids.length; i++) {
-        //         tmp_real_json = JSON.parse(localStorage.getItem("card" + card_ids[i]));
-        //         tmp_real_json.order = i;
-
-        //         if (i == card_ids.length - 1) {
-        //             cards_json_string += JSON.stringify(tmp_real_json) + "]";
-        //             break
-        //         }
-        //         cards_json_string += JSON.stringify(tmp_real_json) + ", ";
-        //     }
-
-        //     return cards_json_string;
-        // }
-        // return false;
+        return cards;
     };
 
     this.get_card = function(id) {
-        return "NOT IMPLEMENTED ERROR";
+        var card = "";
+        $.ajax({
+             url: "/card/"+id,
+             type: "GET",
+             async: true,
+             data: {id:id},
+             success: function(response_data){
+                 alert("card: "+response_data);
+                 card = response_data;
+             },
+             error: function(){
+                 alert("Not OK")
+             }
+         });
+        return card;
     };
 
     this.create_card = function(board_id) {
         var new_card = "";
         $.ajax({
-            url: "/create/card/"+board_id,
+            url: "/card",
             type: "POST",
             async: false,
-            data: {"id":"", "title":"", "description":"", "status":"new", "order":"", "board_id":'+ board_id +'},
+            data: {board_id: board_id},
             success: 
                 function (response_data) {
-                    alert('OK');
-                    alert(response_data);
+                    alert("card created: " + response_data);
                     new_card = response_data;
                 },
             error: 
@@ -374,14 +370,13 @@ function PsqlState() {
     this.create_board = function() {
         var new_board = "";
         $.ajax({
-            url: "/create/board/"+board_id,
-            type: "POST",
+            url: "/board",
+            type: "GET",
             async: false,
-            data: {"id":"", "title":"", "description":"", "status":"new", "order":"", "board_id":'+ board_id +'},
+            data: {},
             success: 
                 function (response_data) {
-                    alert('OK');
-                    alert(response_data);
+                    alert("board created: " + response_data);
                     new_board = response_data;
                 },
             error: 
@@ -395,12 +390,44 @@ function PsqlState() {
 
     this.modify_card = function(card_id, title, description) {
 
-
-        return "NOT IMPLEMENTED ERROR";
+        var modified_card = "";
+        $.ajax({
+            url: "/card/"+card_id,
+            type: "POST",
+            async: false,
+            data: {card_id:card_id,title:title,description:description,action:"modify"},
+            success:
+                function (response_data) {
+                    alert("card modified: " + response_data);
+                    modified_card = response_data;
+                },
+            error:
+                function () {
+                    alert('Not OK')
+                }
+        });
+        return modified_card;
     };
 
     this.modify_board = function(board_id, title) {
-        return "NOT IMPLEMENTED ERROR";
+
+        var modified_board = "";
+        $.ajax({
+            url: "/card/" + board_id,
+            type: "POST",
+            async: false,
+            data: {board_id:board_id,title:title,command:"modify"},
+            success:
+                function (response_data) {
+                    alert("board modified: " + response_data);
+                    modified_board = response_data;
+                },
+            error:
+                function () {
+                    alert('Not OK')
+                }
+        });
+        return modified_board;
     };
 }
 
