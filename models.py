@@ -22,7 +22,7 @@ class BaseModel(Model):
     class Meta:
         database = db
 
-class Table(BaseModel):
+class  Board(BaseModel):
     title = CharField()
 
 
@@ -32,9 +32,9 @@ class Status(BaseModel):
 
 class Card(BaseModel):
     title = TextField()
-    content = TextField()
+    description = TextField()
     status = ForeignKeyField(Status)
     order = IntegerField()
-    board = ForeignKeyField(Table)
+    board = ForeignKeyField(Board)
 
 

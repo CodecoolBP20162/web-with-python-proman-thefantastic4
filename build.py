@@ -1,15 +1,14 @@
 from models import *
 
-class Builder:
 
+class Builder:
     def __init__(self):
-        self.tables = [Table, Card, Status]
+        self.tables = [Board, Card, Status]
         self.statuses = ["new", "inprogress", "review", "done"]
         self.dummy_table = "starter board"
-        self.dummy_cards = [["Story One","content one", "new", 1, "starter board"],                                  ["Story Two", "content two", "new", 2, "starter board"],
+        self.dummy_cards = [["Story One", "content one", "new", 1, "starter board"],
+                            ["Story Two", "content two", "new", 2, "starter board"],
                             ["Story Three", "content three", "new", 1, "starter board"]]
-
-
 
     def build_tables(self):
         db.connect()
@@ -22,7 +21,7 @@ class Builder:
         for status in self.statuses:
             Status.create(name=status)
 
-        Table.create(title=self.dummy_table)
+        Board.create(title=self.dummy_table)
 
         for card in self.dummy_cards:
 
@@ -37,9 +36,9 @@ class Builder:
             elif card[2] == "done":
                 status = Status.select().where(Status.name == "done").get()
 
-            board = Table.select().where(Table.title == self.dummy_table)
+            board = Board.select().where(Board.title == self.dummy_table)
 
-            Card.create(title=card[0], content=card[1], status=status, order=card[3], board=board)
+            Card.create(title=card[0], description=card[1], status=status, order=card[3], board=board)
 
 
 if __name__ == "__main__":

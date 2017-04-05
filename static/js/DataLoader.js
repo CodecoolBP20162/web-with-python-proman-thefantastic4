@@ -286,30 +286,30 @@ function PsqlState() {
         }
     };
 
-    // this.get_board = function(id) {
-    //     var board_id = "";
-    //     $.ajax({
-    //         url: "",
-    //         type: "GET",
-    //         async: false,
-    //         succes:
-    //             function () {
 
-    //             },
-    //         error:
-    //             function () {
-    //                 return false;
-    //             }
-    //     });
-    // //     if (localStorage.getItem("board" + board_id) === null) {
-    // //         return false;
-    // //     }
+    this.get_board = function(action,id) {
+        var board_id = "";
+        $.ajax({
+            url: "/boards/"+board_id,
+            type: "POST",
+            data: {action: action, board_id: id},
+            async: false,
+            succes:
+                function (response_data) {
+                    alert(response_data);
+        //             // return localStorage.getItem("board" + board_id);
+            },
+            error:
+                function () {
+                    return false;
+            }
+        });
+        //return "NOT IMPLEMENTED ERROR";
+    };
 
-    // //     return localStorage.getItem("board" + board_id);
-    // // };
-    // };
+    this.get_all_cards = function(board_id) {
+        // chosen_board = this.get_board(board_id);
 
-    this.get_all_cards = function() {
         // var board_id = "";
         // $.ajax({
         //     url: "",
@@ -319,6 +319,31 @@ function PsqlState() {
         //     error: function () {}
         // });
         return "NOT IMPLEMENTED ERROR";
+                
+
+        // if (chosen_board !== null) {
+        //     chosen_board = JSON.parse(chosen_board);
+        //     card_ids = chosen_board.card_order.split(";");
+
+        //     if (card_ids[0] == "") {
+        //         return false
+        //     }
+
+        //     cards_json_string = "[";
+        //     for (var i = 0; i < card_ids.length; i++) {
+        //         tmp_real_json = JSON.parse(localStorage.getItem("card" + card_ids[i]));
+        //         tmp_real_json.order = i;
+
+        //         if (i == card_ids.length - 1) {
+        //             cards_json_string += JSON.stringify(tmp_real_json) + "]";
+        //             break
+        //         }
+        //         cards_json_string += JSON.stringify(tmp_real_json) + ", ";
+        //     }
+
+        //     return cards_json_string;
+        // }
+        // return false;
     };
 
     this.get_card = function(id) {
