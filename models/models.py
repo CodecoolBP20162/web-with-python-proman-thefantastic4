@@ -6,7 +6,12 @@ def connection():
     f_path = os.path.join(os.path.dirname(__file__), "parameter.txt")
     with open(f_path, 'r') as ident:
         log_in = ident.readlines()
-        db = PostgresqlDatabase(log_in[0], user=log_in[0])
+        db = PostgresqlDatabase(
+            log_in[2].strip(),  # Required by Peewee.
+            user=log_in[0].strip(),  # Will be passed directly to psycopg2.
+            password=log_in[1].strip(),  # Ditto.
+            host='localhost',  # Ditto.
+        )
         try:
             db.connect()
             print("Database connection established.")
