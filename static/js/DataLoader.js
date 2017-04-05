@@ -350,10 +350,10 @@ function PsqlState() {
     this.create_card = function(board_id) {
         var new_card = "";
         $.ajax({
-            url: "/create/card/"+board_id,
+            url: "/card",
             type: "POST",
             async: false,
-            data: {title:"", description:"", board_id: board_id},
+            data: {board_id: board_id},
             success: 
                 function (response_data) {
                     alert("card created: " + response_data);
@@ -370,7 +370,7 @@ function PsqlState() {
     this.create_board = function() {
         var new_board = "";
         $.ajax({
-            url: "/create/board",
+            url: "/board",
             type: "GET",
             async: false,
             data: {},

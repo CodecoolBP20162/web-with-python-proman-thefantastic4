@@ -1,4 +1,4 @@
-from models import *
+from models.models import *
 
 
 class Builder:
@@ -12,7 +12,7 @@ class Builder:
                             ["Story Three", "content three", "new", 1, "starter board"]]
 
     def build_tables(self):
-        db.connect()
+        # db.connect()
         db.drop_tables(self.tables, safe=True, cascade=True)
         db.create_tables(self.tables, safe=True)
         self.create_dummy_data()
@@ -41,7 +41,3 @@ class Builder:
             board = Board.select().where(Board.title == self.dummy_table)
 
             Card.create(title=card[0], description=card[1], status=status, order=card[3], board=board)
-
-
-if __name__ == "__main__":
-    Builder().build_tables()
