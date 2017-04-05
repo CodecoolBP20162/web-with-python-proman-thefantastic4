@@ -6,6 +6,7 @@ class Builder:
         self.tables = [Board, Card, Status]
         self.statuses = ["new", "inprogress", "review", "done"]
         self.dummy_table = "starter board"
+        self.dummy_table2 = "second starter board"
         self.dummy_cards = [["Story One", "content one", "new", 1, "starter board"],
                             ["Story Two", "content two", "new", 2, "starter board"],
                             ["Story Three", "content three", "new", 1, "starter board"]]
@@ -22,6 +23,7 @@ class Builder:
             Status.create(name=status)
 
         Board.create(title=self.dummy_table)
+        Board.create(title=self.dummy_table2)
 
         for card in self.dummy_cards:
 
