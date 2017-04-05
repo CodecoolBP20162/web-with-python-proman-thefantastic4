@@ -135,8 +135,5 @@ fabric.properties
 
 .idea/
 .vscode/
-<<<<<<< HEAD
 models/parameter.txt
-=======
-models/parameter.txt
->>>>>>> mano_api_endpoint
+

@@ -3,7 +3,6 @@ import json
 
 
 class ApiQueries:
-
     def __init__(self, tables):
         if "card" in tables:
             self.card = Card
@@ -101,5 +100,4 @@ class ApiQueries:
 
         for card in cards:
             card.delete()
-
-        return True
+        return "true"
