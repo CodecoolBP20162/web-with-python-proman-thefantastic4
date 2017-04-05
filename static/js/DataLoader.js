@@ -263,14 +263,61 @@ function LocalStorageState() {
 
 function PsqlState() {
     this.get_all_boards = function() {
-        return "NOT IMPLEMENTED ERROR";
+        var boards_list = ""; 
+        $.ajax({
+            url: "/boards",
+            type: "GET",
+            async: false,
+            success: 
+                function (data) {
+                    alert('OK');
+                    alert(data);
+                    board_list = data;
+                },
+            error: 
+                function () {
+                    alert('Not OK')
+                }
+        });
+        if (board_list.length != 0) { 
+            return board_list;
+        } else {
+            return false;
+        }
     };
 
-    this.get_board = function(id) {
-        return "NOT IMPLEMENTED ERROR";
-    };
+    // this.get_board = function(id) {
+    //     var board_id = "";
+    //     $.ajax({
+    //         url: "",
+    //         type: "GET",
+    //         async: false,
+    //         succes:
+    //             function () {
+
+    //             },
+    //         error:
+    //             function () {
+    //                 return false;
+    //             }
+    //     });
+    // //     if (localStorage.getItem("board" + board_id) === null) {
+    // //         return false;
+    // //     }
+
+    // //     return localStorage.getItem("board" + board_id);
+    // // };
+    // };
 
     this.get_all_cards = function() {
+        // var board_id = "";
+        // $.ajax({
+        //     url: "",
+        //     type: "GET",
+        //     async: false,
+        //     success: function () {},
+        //     error: function () {}
+        // });
         return "NOT IMPLEMENTED ERROR";
     };
 
@@ -366,4 +413,4 @@ function DataLoader(state) {
     this.instantiate_state();
 }
 
-var data_loader = new DataLoader("localstorage");
+var data_loader = new DataLoader("psql");
