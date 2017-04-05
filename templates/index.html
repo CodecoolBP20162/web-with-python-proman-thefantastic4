@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <title>BOARD</title>
     <!--Title of the page by the actual BOARD -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -23,22 +22,16 @@
     <script src="/static/js/sortable_lists.js"></script>
     <script src="/static/js/textarea_resize.js"></script>
     <script src="/static/js/init_boards.js"></script>
-
     <script src="/static/js/cards.js"></script>
     <script src="/static/js/status_settr.js"></script>
 </head>
-
 <body>
-
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="javascript:void(0)" id ="add-board"  class="addbtn">+</a>
+    <a href="javascript:void(0)" id="add-board" class="addbtn">+</a>
 </div>
-
-<!-- Use any element to open the sidenav -->
-<span onclick="openNav()"><button id="open-button" title="Boards menu" class="sidebar-open-button glyphicon glyphicon-menu-right"></button></span>
-
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<span onclick="openNav()"><button id="open-button" title="Boards menu"
+                                  class="sidebar-open-button glyphicon glyphicon-menu-right"></button></span>
 <div id="main">
     <div class="container">
         <div class="navbar navbar-default navbar-fixed-top">
@@ -50,12 +43,13 @@
                 </a>
             </div>
             <div class=" col-lg-11 col-centered">
-
                 <p class="board-title">BOARD TITLE VARIABLE</p>
+                <button id="trash-button" title="Delete board" type="button" class="btn btn-default"><span
+                        id="trash-icon"
+                        class="glyphicon glyphicon-trash"></span>
+                </button>
             </div>
         </div>
-
-
         <div class="container">
             <div id="card-lists" class="row">
                 <div id="new-cards" class="col-md-3">
@@ -66,72 +60,45 @@
                 <div id="in-progress-cards" class="col-md-3">
                     <h2 id="in-progress">IN PROGRESS</h2>
                     <ul class="sortable">
-
                     </ul>
                 </div>
                 <div id="review-cards" class="col-md-3">
                     <h2 id="review">REVIEW</h2>
                     <ul class="sortable">
-                        
                     </ul>
                 </div>
-
                 <div id="done-cards" class="col-md-3">
                     <h2 id="done">DONE</h2>
                     <ul class="sortable">
-
                     </ul>
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
-
-
 </body>
-
 <footer>
-
-    <button id="add-button" title="Add new card" type="button" class="btn btn-default"><span id="add-icon"
-
-                                                                                             class="glyphicon glyphicon-plus"></span>
+    <button id="add-button" title="Add new card" type="button" class="btn btn-default"><span id="add-icon" class="glyphicon glyphicon-plus"></span>
     </button>
-
     <button id="trash-button" title="Delete board" type="button" class="btn btn-default"><span id="trash-icon"
                                                                                                class="glyphicon glyphicon-trash"></span>
-
-
     </button>
-
     <li id="1" style="display: none;">
         <div class="card">
             <div class="card-title">
-
                 <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
             </div>
-
             <div class="card-description">
                 <textarea class="task" spellcheck=false rows="1"
-                            placeholder="write a task"></textarea>
-
+                          placeholder="write a task"></textarea>
             </div>
-
             <div>
                 <button class="remove-card">
             </div>
-
         </div>
     </li>
-
 </footer>
-
 <script>
-
 </script>
-
-
-
 </html>
 

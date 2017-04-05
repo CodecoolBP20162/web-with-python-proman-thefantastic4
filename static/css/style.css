@@ -2,9 +2,8 @@
 body {
 
     height: 100%;
-	background: white;
-	background: radial-gradient(circle, #fff 10%, #ccc);
-	background-size: cover;
+    background: white;
+    background-size: cover;
 }
 
 #new, #in-progress, #review, #done {
@@ -46,7 +45,7 @@ li {
 
 .card {
 
-    border: solid skyblue ;
+    border: solid #2196F3;
     background-color: rgba(230, 230, 230, 1);
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
     min-height: inherit;
@@ -63,24 +62,22 @@ li {
 
 #in-progress-cards li .card {
 
-    border-color: rgb(252, 169, 133);
+    border-color: #F44336;
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
 
 }
 
 #review-cards li .card {
 
-    border-color: rgb(255, 250, 129);
+    border-color: #FFEB3B;
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
-
 
 }
 
 #done-cards li .card {
 
-    border-color: rgb(145, 210, 144);
+    border-color: #4CAF50;
     /*background: -webkit-linear-gradient(red, yellow);/* For Safari 5.1 to 6.0 */
-
 
 }
 
@@ -88,6 +85,8 @@ li {
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
     cursor: move;
+    border-radius: 0px;
+    background-color: rgba(230, 230, 230, 0.5);
 }
 
 .fixed-container {
@@ -140,7 +139,8 @@ textarea:hover {
 .navbar {
     background-image: none !important;
     border: none !important;
-    background-color: rgba(17, 17, 17, 0.7);
+    background-color: #2F51B5;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
 }
 
 .board-title {
@@ -204,7 +204,7 @@ button {
     z-index: 1; /* Stay on top */
     top: 80px;
     left: 0;
-    background-color: rgba(17, 17, 17, 0.7); /* Black*/
+    background-color: #2F51B5;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -222,7 +222,7 @@ button {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus {
-    color: #12ebf1;
+    color: #E8EAF6;
 }
 
 /* Position and style the close button (top right corner) */
@@ -273,17 +273,20 @@ button {
 }
 
 .btn-default:hover {
-    color: rgba(21, 216, 255, 0.7) !important;
-    transition: color 0.5s;
+
+    transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    transition: 0.3s;
 }
 
 .sidebar-open-button {
 
     border-style: solid;
-    border-radius: 20px;
+    border-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #2F51B5;
     height: 60px;
     position: fixed;
     margin-top: 300px;
@@ -292,12 +295,9 @@ button {
 }
 
 .sidebar-open-button:hover {
-    color: rgba(21, 216, 255, 0.7);
-    border-color: rgba(21, 216, 255, 0.7);
+    color: #E8EAF6;
+    border-color: #E8EAF6;
     transition: color 0.5s, border-color 0.5s;
-        transform: scale(1.2, 1.2);
-    -ms-transform: scale(1.2, 1.2);
-    -webkit-transform: scale(1.2, 1.2);
 }
 
 .glyphicon-menu-right {
@@ -306,19 +306,17 @@ button {
 }
 
 #add-button {
-    background-color: rgba(17, 17, 17, 0.7) !important;
-    border: solid !important;
-    border-bottom: none !important;
+    background-color: #FF5722 !important;
     border-radius: 50px !important;
-    border-bottom-right-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
     position: fixed;
     width: 80px;
     bottom: 0px;
-    left: 50%;
-    text-align: center;
+    right: 2%;
+    top: 85%;
+    text-align: right;
     height: 80px;
     margin-left: -22px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
 
 }
 
@@ -329,13 +327,15 @@ button {
 
 #trash-button {
     background-color: transparent !important;
+    background-size: 30%;
     position: fixed;
-    width: 80px;
-    bottom: 0px;
-    left: 85%;
+    width: 60px;
+    top: 0%;
+    right: 0%;
     text-align: center;
-    height: 80px;
-
+    height: 60px;
+    -webkit-filter: drop-shadow(4px 4px 4px #222) !important;
+    filter: drop-shadow(4px 4px 4px #222) !important;
 
 }
 
@@ -355,9 +355,10 @@ button {
     background-image: url("/static/img/trash_recyclebin_empty_closed.png");
     background-color: transparent !important;
     background-size: 100%;
+    right: 1%;
     height: 32px;
     width: 32px;
     border: none;
     -webkit-filter: drop-shadow(1px 1px 1px #222);
-    filter:         drop-shadow(1px 1px 1px #222);
+    filter: drop-shadow(1px 1px 1px #222);
 }
