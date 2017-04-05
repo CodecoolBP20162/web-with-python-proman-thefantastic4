@@ -152,6 +152,7 @@ textarea:hover {
     padding-top: 15px;
     font-size: 150%;
     margin: auto;
+
 }
 
 .col-centered {
@@ -298,6 +299,7 @@ button {
     color: #E8EAF6;
     border-color: #E8EAF6;
     transition: color 0.5s, border-color 0.5s;
+
 }
 
 .glyphicon-menu-right {
@@ -361,4 +363,9 @@ button {
     border: none;
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     filter: drop-shadow(1px 1px 1px #222);
+}
+
+#add-board-name {
+
+    
 }
