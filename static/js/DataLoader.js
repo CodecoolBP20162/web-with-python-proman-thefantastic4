@@ -262,6 +262,7 @@ function LocalStorageState() {
 }
 
 function PsqlState() {
+
     this.get_all_boards = function() {
         var boards_list = ""; 
         $.ajax({
@@ -270,8 +271,7 @@ function PsqlState() {
             async: false,
             success: 
                 function (data) {
-                    alert('OK');
-                    alert(data);
+                    alert("all boards: "data);
                     board_list = data;
                 },
             error: 
@@ -287,67 +287,63 @@ function PsqlState() {
     };
 
 
-    this.get_board = function(action,id) {
-        var board_id = "";
+    this.get_board = function(id) {
+        var board = "";
         $.ajax({
             url: "/boards/"+board_id,
             type: "POST",
-            data: {action: action, board_id: id},
+            data: {board_id: id},
             async: false,
-            succes:
+            success:
                 function (response_data) {
-                    alert(response_data);
-        //             // return localStorage.getItem("board" + board_id);
+                    alert("board: "response_data);
+                    board = response_data;
             },
             error:
                 function () {
                     return false;
             }
         });
-        //return "NOT IMPLEMENTED ERROR";
+
+        return board;
+
     };
 
     this.get_all_cards = function(board_id) {
-        // chosen_board = this.get_board(board_id);
+        var cards = "";
+        $.ajax({
+            url: "/get-cards/" + board_id,
+            type: "GET",
+            async: false,
+            data: {board_id: board_id},
+            success: function (response_data) {
+                alert("cards: " + response_data);
+                cards = response_data;
+            },
+            error: function () {
+                alert("Not OK")
+            }
+        });
 
-        // var board_id = "";
-        // $.ajax({
-        //     url: "",
-        //     type: "GET",
-        //     async: false,
-        //     success: function () {},
-        //     error: function () {}
-        // });
-        return "NOT IMPLEMENTED ERROR";
-                
-
-        // if (chosen_board !== null) {
-        //     chosen_board = JSON.parse(chosen_board);
-        //     card_ids = chosen_board.card_order.split(";");
-
-        //     if (card_ids[0] == "") {
-        //         return false
-        //     }
-
-        //     cards_json_string = "[";
-        //     for (var i = 0; i < card_ids.length; i++) {
-        //         tmp_real_json = JSON.parse(localStorage.getItem("card" + card_ids[i]));
-        //         tmp_real_json.order = i;
-
-        //         if (i == card_ids.length - 1) {
-        //             cards_json_string += JSON.stringify(tmp_real_json) + "]";
-        //             break
-        //         }
-        //         cards_json_string += JSON.stringify(tmp_real_json) + ", ";
-        //     }
-
-        //     return cards_json_string;
-        // }
-        // return false;
+        return cards;
     };
 
     this.get_card = function(id) {
-        return "NOT IMPLEMENTED ERROR";
+        var card = "";
+        $.ajax({
+             url: "/card/"+id,
+             type: "GET",
+             async: true,
+             data: {id:id},
+             success: function(response_data){
+                 alert("card: "+response_data);
+                 card = response_data;
+             },
+             error: function(){
+                 alert("Not OK")
+             }
+         });
+        return card;
     };
 
     this.create_card = function(board_id) {
