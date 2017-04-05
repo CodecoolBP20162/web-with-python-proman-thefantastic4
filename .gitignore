@@ -134,5 +134,9 @@ crashlytics-build.properties
 fabric.properties
 
 .idea/
-parameter.txt
 .vscode/
+<<<<<<< HEAD
+models/parameter.txt
+=======
+models/parameter.txt
+>>>>>>> mano_api_endpoint
