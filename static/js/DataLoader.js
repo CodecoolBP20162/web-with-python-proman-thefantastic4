@@ -264,14 +264,14 @@ function LocalStorageState() {
 function PsqlState() {
 
     this.get_all_boards = function() {
-        var boards_list = ""; 
+        var board_list = "";
         $.ajax({
             url: "/boards",
             type: "GET",
             async: false,
             success: 
                 function (data) {
-                    alert("all boards: "data);
+                    alert("all boards: "+data);
                     board_list = data;
                 },
             error: 
@@ -289,6 +289,7 @@ function PsqlState() {
 
     this.get_board = function(id) {
         var board = "";
+
         $.ajax({
             url: "/boards/"+board_id,
             type: "POST",
@@ -296,7 +297,7 @@ function PsqlState() {
             async: false,
             success:
                 function (response_data) {
-                    alert("board: "response_data);
+                    alert("board: "+response_data);
                     board = response_data;
             },
             error:
@@ -347,19 +348,87 @@ function PsqlState() {
     };
 
     this.create_card = function(board_id) {
-        return "NOT IMPLEMENTED ERROR";
+        var new_card = "";
+        $.ajax({
+            url: "/create/card/"+board_id,
+            type: "POST",
+            async: false,
+            data: {"id":"", "title":"", "description":"", "status":"new", "order":"", "board_id":'+ board_id +'},
+            success: 
+                function (response_data) {
+                    alert('OK');
+                    alert(response_data);
+                    new_card = response_data;
+                },
+            error: 
+                function () {
+                    alert('Not OK')
+                }
+        });
+        return new_card;
     };
 
     this.create_board = function() {
-        return "NOT IMPLEMENTED ERROR";
+        var new_board = "";
+        $.ajax({
+            url: "/create/board",
+            type: "POST",
+            async: false,
+            data: {},
+            success: 
+                function (response_data) {
+                    alert("board created: " + response_data);
+                    new_board = response_data;
+                },
+            error: 
+                function () {
+                    alert('Not OK')
+                }
+        });
+        return new_board;
+        
     };
 
     this.modify_card = function(card_id, title, description) {
-        return "NOT IMPLEMENTED ERROR";
+
+        var modified_card = "";
+        $.ajax({
+            url: "/card/"+card_id,
+            type: "POST",
+            async: false,
+            data: {card_id:card_id,title:title,description:description},
+            success:
+                function (response_data) {
+                    alert("card modified: " + response_data);
+                    modified_card = response_data;
+                },
+            error:
+                function () {
+                    alert('Not OK')
+                }
+        });
+        return modified_card;
     };
 
     this.modify_board = function(board_id, title) {
-        return "NOT IMPLEMENTED ERROR";
+
+        var modified_board = "";
+        $.ajax({
+            url: "/card/" + board_id,
+            type: "POST",
+            async: false,
+            data: {board_id:board_id,title:title},
+            success:
+                function (response_data) {
+                    alert("board modified: " + response_data);
+                    modified_board = response_data;
+                },
+            error:
+                function () {
+                    alert('Not OK')
+                }
+        });
+        return modified_board;
     };
 }
 

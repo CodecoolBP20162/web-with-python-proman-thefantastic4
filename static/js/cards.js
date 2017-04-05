@@ -41,6 +41,20 @@ $(document).ready(function(){
  
         $('.board-title').html(board_title);
         $('title').html(board_title);
+    //     $().html();
+    //     $().html();
+    //         $("#delete").click(function() {
+    //     var board_id = $(this).attr("name")
+    //     get_board("delete",)
+
+    // })
+
+
+    // $("#modify").click(function() {
+    //     var board_id = $(this).attr("id")
+    //     get_board("delete",)
+
+    // })
 
         var all_cards = data_loader.get_all_cards(board.id);
         all_cards = JSON.parse(all_cards);
@@ -97,11 +111,8 @@ $(document).ready(function(){
                 //fill_with_cards(all_cards);
                 status_checker(all_cards);
             });
-
-        }
-        
+        }       
     });
-
 });
 
 
