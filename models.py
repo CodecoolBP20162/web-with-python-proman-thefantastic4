@@ -22,7 +22,8 @@ class BaseModel(Model):
     class Meta:
         database = db
 
-class  Board(BaseModel):
+
+class Board(BaseModel):
     title = CharField()
 
 
