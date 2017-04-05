@@ -1,7 +1,6 @@
 from flask import (Flask, abort, current_app, flash, g, json, redirect,
                    render_template, request, session, url_for)
-
-from build import Builder
+#from build import Builder
 from models import *
 
 app = Flask(__name__)
@@ -29,7 +28,7 @@ def index():
 @app.route('/boards')
 def get_boards():
 
-    boards = Table.select()
+    boards = Board.select()
     data = []
     for board in boards:
         data.append({"id": board.id, "title": board.title})
