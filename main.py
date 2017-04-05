@@ -28,11 +28,16 @@ def get_board(board_id):
     return json.dumps(response_data)
 
 
-@app.route('/create/card')
+@app.route('/create/card/<int:board_id>', methods=["POST"])
+def create_card():
+    status = Status.select().where(Status.name == "new")
+    Card.create(title="", descrption="", order=0, status=status, board=request.form["board_id"])
+
+
+@app.route('/create/board')
 def create_board():
-    #if request.form["type"] == "card":
-    status = Status.select().where(Status.name == request.form["status"])
-    Card.create(title=request.form["title"], descrption=request.form["description"], order=request.form["order"], status=status,board=request.form["border"])
+    Board.create(title="new_board")
+    return "new board created"
 
 if __name__ == '__main__':
     app.run()

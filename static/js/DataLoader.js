@@ -353,11 +353,10 @@ function PsqlState() {
             url: "/create/card/"+board_id,
             type: "POST",
             async: false,
-            data: {"id":"", "title":"", "description":"", "status":"new", "order":"", "board_id":'+ board_id +'},
+            data: {title:"", description:"", board_id: board_id},
             success: 
                 function (response_data) {
-                    alert('OK');
-                    alert(response_data);
+                    alert("card created: " + response_data);
                     new_card = response_data;
                 },
             error: 
@@ -372,7 +371,7 @@ function PsqlState() {
         var new_board = "";
         $.ajax({
             url: "/create/board",
-            type: "POST",
+            type: "GET",
             async: false,
             data: {},
             success: 
@@ -396,7 +395,7 @@ function PsqlState() {
             url: "/card/"+card_id,
             type: "POST",
             async: false,
-            data: {card_id:card_id,title:title,description:description},
+            data: {card_id:card_id,title:title,description:description,action:"modify"},
             success:
                 function (response_data) {
                     alert("card modified: " + response_data);
@@ -417,7 +416,7 @@ function PsqlState() {
             url: "/card/" + board_id,
             type: "POST",
             async: false,
-            data: {board_id:board_id,title:title},
+            data: {board_id:board_id,title:title,command:"modify"},
             success:
                 function (response_data) {
                     alert("board modified: " + response_data);
