@@ -290,7 +290,7 @@ function PsqlState() {
     this.get_board = function(action,id) {
         var board_id = id;
         $.ajax({
-            url: "/boards/"+board_id,
+            url: "/boards/"+board_id, //restapi-s
             type: "POST",
             data: {action: action, board_id: id},
             async: false,
