@@ -31,7 +31,7 @@ def remove_or_modify_board(board_id):
         return ApiQueries().modify_board(board_id, request.form.get('title'))
 
     elif action == "delete":
-        return "faszom"
+        return ApiQueries().delete_board(board_id)
 
 
 @app.route('/get-cards/<int:board_id>', methods=['GET'])
@@ -39,9 +39,14 @@ def get_cards(board_id):
     return ApiQueries().get_cards(board_id)
 
 
-@app.route('/create/card')
+@app.route('/board', methods=['POST'])
 def create_board():
-    return ApiQueries().create_card()
+    return ApiQueries().create_board()
+
+
+# @app.route('/create/card')
+# def create_board():
+#     return ApiQueries().create_card()
 
 
 @app.route('/is-psql-on/', methods=['GET'])

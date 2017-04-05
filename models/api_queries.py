@@ -55,3 +55,26 @@ class ApiQueries:
             board.save()
             return "true"
         return "false"
+
+    def delete_board(self, board_id):
+        self.delete_cards_of_board(board_id)
+        board = Board.select().where(Board.id == board_id)
+
+        if board.exists():
+            board.delete()
+            return "true"
+        return "false"
+
+    def create_board(self):
+        Board.create(title="")
+        return str(Board.select().order_by(Board.id.desc()).get().id)
+
+    # Additional methods
+    def delete_cards_of_board(self, board_id):
+        cards = Card.select().where(Card.board == board_id)
+
+        for card in cards:
+            card.delete()
+
+        return True
+
