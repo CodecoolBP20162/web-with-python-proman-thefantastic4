@@ -81,6 +81,7 @@ function LocalStorageState() {
         return true;
     };
 
+
     this.modify_board = function(board_id, title) {
         var board_json = JSON.parse(localStorage.getItem("board"+board_id));
         board_json.title = title;
