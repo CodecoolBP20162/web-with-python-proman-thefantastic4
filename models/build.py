@@ -7,9 +7,9 @@ class Builder:
         self.statuses = ["new", "in-progress", "review", "done"]
         self.dummy_table = "starter board"
         self.dummy_table2 = "second starter board"
-        self.dummy_cards = [["Story One", "content one", "new", 1, "starter board"],
-                            ["Story Two", "content two", "new", 2, "starter board"],
-                            ["Story Three", "content three", "new", 1, "starter board"]]
+        self.dummy_cards = [["Story One", "content one", "new", 0, "starter board"],
+                            ["Story Two", "content two", "new", 1, "starter board"],
+                            ["Story Three", "content three", "new", 2, "starter board"]]
 
     def build_tables(self):
         # db.connect()

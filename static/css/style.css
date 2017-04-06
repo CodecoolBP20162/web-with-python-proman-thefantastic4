@@ -366,7 +366,10 @@ button {
     filter: drop-shadow(1px 1px 1px #222);
 }
 
-#add-board-name {
-
-
+#floating-empty-card {
+    position:fixed;
+    bottom:15px;
+    left:15px;
+    width:260px;
+    height:160px;
 }

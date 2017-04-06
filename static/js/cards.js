@@ -1,8 +1,10 @@
 $(document).ready(function () {
 
+    data_loader.set_active_board(0);
+
     $('body').on('click', '.remove-card', function () {
-        var card_id = $(this).closest('li').attr("id");
-        console.log(card_id)
+        var card_id = $(this).closest('li').attr("id").slice(2);
+        $(this).closest('li').remove();
         data_loader.remove_card(card_id);
 
     });
@@ -47,8 +49,7 @@ $(document).ready(function () {
         board = JSON.parse(board);
         var board_title = board.title;
 
-        $('.board-title').html(board_title);
-        $('title').html(board_title);
+        $('#navbar-title-input').val(board_title);
 
         var all_cards = data_loader.get_all_cards(board.id);
         all_cards = JSON.parse(all_cards);
@@ -70,14 +71,11 @@ $(document).ready(function () {
         var new_card = data_loader.create_card(data_loader.get_active_board());
         var empty_card = $('#empty-card-final');
         empty_card.clone().appendTo('#new-cards .sortable').removeAttr("style").attr("id", "li" + new_card);
-        $("#cardtitle" + new_card).val("");
-        $("#cardtitle" + new_card).html("");
-
-        $("#cardtask" + new_card).val("");
-        $("#cardtask" + new_card).html("");
 
         $("#li" + new_card + " .title-input").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtitle" + new_card);
         $("#li" + new_card + " .task").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtask" + new_card);
+        $("#li" + new_card + " .title-input").html("");
+        $("#li" + new_card + " .task").html("");
 
     });
 
@@ -110,6 +108,13 @@ $(document).ready(function () {
             });
 
         }       
+    });
+
+    $("#navbar-title-input").blur(function() {
+        var active_board = data_loader.get_active_board();
+        if (active_board != 0) {
+            data_loader.modify_board(active_board, $("#navbar-title-input").val());
+        }
     });
 });
 
