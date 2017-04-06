@@ -47,7 +47,7 @@ class ApiQueries:
         return str(self.card.select().order_by(self.card.id.desc()).get().id)
 
     def get_cards(self, board_id):
-        cards = self.card.select().where(self.card.board == board_id)
+        cards = self.card.select().where(self.card.board == board_id).order_by(self.card.order.asc())
         response_data = []
         for card in cards:
             response_data.append({

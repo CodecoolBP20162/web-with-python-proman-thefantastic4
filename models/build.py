@@ -4,7 +4,7 @@ from models.models import *
 class Builder:
     def __init__(self):
         self.tables = [Board, Card, Status]
-        self.statuses = ["new", "inprogress", "review", "done"]
+        self.statuses = ["new", "in-progress", "review", "done"]
         self.dummy_table = "starter board"
         self.dummy_table2 = "second starter board"
         self.dummy_cards = [["Story One", "content one", "new", 1, "starter board"],

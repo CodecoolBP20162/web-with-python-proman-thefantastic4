@@ -9,9 +9,9 @@ $(document).ready(function () {
 
 
     var status_checker = function (all_cards) {
-        var empty_card = $('#1');
-        var empty_title = $('#1 .title-input');
-        var empty_description = $('#1 .task');
+        var empty_card = $('#empty-card-final');
+        var empty_title = $('#empty-card-final .title-input');
+        var empty_description = $('#empty-card-final .task');
 
         $('.sortable').html('');
         for (card in all_cards) {
@@ -27,10 +27,8 @@ $(document).ready(function () {
             } else if (all_cards[card].status === 'done') {
                 var where = '#done-cards .sortable';
                 fill_with_cards(all_cards, empty_card, empty_title, empty_description, where);
-            }
-            ;
-        }
-        ;
+            };
+        };
     };
 
     var fill_with_cards = function (all_cards, empty_card, empty_title, empty_description, where) {
@@ -70,13 +68,16 @@ $(document).ready(function () {
 
     $('#add-button').click(function () {
         var new_card = data_loader.create_card(data_loader.get_active_board());
-        var empty_card = $('#1');
-        empty_card.clone().appendTo('#new-cards .sortable').removeAttr("style").attr("id", new_card);
+        var empty_card = $('#empty-card-final');
+        empty_card.clone().appendTo('#new-cards .sortable').removeAttr("style").attr("id", "li" + new_card);
         $("#cardtitle" + new_card).val("");
         $("#cardtitle" + new_card).html("");
 
         $("#cardtask" + new_card).val("");
         $("#cardtask" + new_card).html("");
+
+        $("#li" + new_card + " .title-input").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtitle" + new_card);
+        $("#li" + new_card + " .task").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtask" + new_card);
 
     });
 
