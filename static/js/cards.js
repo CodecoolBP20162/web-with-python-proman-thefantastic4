@@ -88,6 +88,7 @@ $(document).ready(function(){
         var title = prompt("Please give me a board name!");
         if (title.trim() != "") {
             var board_id = data_loader.create_board();
+            console.log(board_id + " " + title);
             data_loader.modify_board(board_id, title);
             $('<a href="javascript:void(0)" class="menu-link" id="'+board_id+'">' + title + '</a>').insertBefore('#add-board');
             

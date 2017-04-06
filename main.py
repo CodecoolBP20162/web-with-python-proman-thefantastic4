@@ -31,7 +31,7 @@ def remove_or_modify_board(board_id):
         return ApiQueries(["board"]).modify_board(board_id, request.form["title"])
 
     elif action == "delete":
-        return ApiQueries(["board"]).delete_board(board_id)
+        return ApiQueries(["board", "card"]).delete_board(board_id)
 
 
 @app.route('/cards/<int:board_id>', methods=['GET'])
@@ -41,10 +41,23 @@ def get_cards(board_id):
 
 @app.route('/card/<int:card_id>', methods=["POST"])
 def modify_and_remove_card(card_id):
-    if request.form["action"] == "modify":
+    if request.form['action'] == "create":
+        board_id = card_id
+        return ApiQueries(["card", "status"]).create_card(board_id)
+
+    elif request.form["action"] == "modify":
         return ApiQueries(["card"]).modify_card(request.form["title"], request.form["description"], card_id)
-    if request.form["action"] == "delete":
+
+    elif request.form["action"] == "delete":
         return ApiQueries(["card"]).delete_card(card_id)
+
+    elif request.form['action'] == "move":
+        return ApiQueries(["card", "status"]).move_card(card_id, request.form['new_status'], request.form['new_position'])
+
+
+@app.route('/card/<int:card_id>', methods=['GET'])
+def get_card(card_id):
+    return ApiQueries(['card', 'status']).get_card(card_id)
 
 
 @app.route('/card', methods=['POST'])
@@ -52,7 +65,7 @@ def create_card(board_id):
     return ApiQueries(["card", "board"]).create_card(board_id)
 
 
-@app.route('/board', methods=['GET'])
+@app.route('/board', methods=['POST'])
 def create_board():
     return ApiQueries(["board"]).create_board()
 
