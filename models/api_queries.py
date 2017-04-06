@@ -47,7 +47,7 @@ class ApiQueries:
         return str(self.card.select().order_by(self.card.id.desc()).get().id)
 
     def get_cards(self, board_id):
-        cards = self.card.select().where(self.card.board == board_id)
+        cards = self.card.select().where(self.card.board == board_id).order_by(self.card.order.asc())
         response_data = []
         for card in cards:
             response_data.append({
@@ -131,12 +131,11 @@ class ApiQueries:
         if card_to_move.exists():
             card_to_move = card_to_move.get()
             current_status = card_to_move.status.id
-            self.increase_order_after(card_to_move.board.id, new_status.id, new_position)
+            self.increase_order_after(card_to_move.board, new_status.id, new_position)
             card_to_move.status = new_status.id
             card_to_move.order = new_position
             card_to_move.save()
             self.reorder_cards_on_board(card_to_move.board.id, current_status)
-
 
         return "true"
 
@@ -150,7 +149,10 @@ class ApiQueries:
         return "true"
 
     def reorder_cards_on_board(self, board_id, status_id):
-        cards = self.card.select().where(self.card.board == board_id and self.card.status == status_id).order_by(self.card.order.asc())
+        cards = self.card.select().where(
+            (self.card.board == board_id) &
+            (self.card.status == status_id)
+        ).order_by(self.card.order.asc())
 
         current_order = 0
         for card in cards:
@@ -161,9 +163,14 @@ class ApiQueries:
         return "true"
 
     def increase_order_after(self, board_id, status_id, order_index):
-        cards_to_increase = self.card.select().where(self.card.board == board_id and self.card.status == id and self.card.order >= order_index)
+        cards_to_increase = self.card.select().where(
+            (self.card.board == board_id) &
+            (self.card.status == status_id) &
+            (self.card.order >= order_index)
+        )
 
         for card in cards_to_increase:
+            print(card.id)
             card.order += 1
             card.save()
 

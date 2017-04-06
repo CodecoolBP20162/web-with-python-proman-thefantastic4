@@ -170,10 +170,6 @@ img {
     background-size: cover;
 }
 
-.logo {
-    background-size: cover;
-}
-
 .img-wrapper {
     height: auto;
     width: auto;
@@ -234,7 +230,7 @@ button {
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
-    padding: 20px;
+    margin-top:50px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -318,7 +314,7 @@ button {
 }
 
 /*------NAVBAR TITLE-------*/
-.board-title {
+.navbar-board-title {
 
     font-family: 'Josefin Sans', sans-serif;
     font-style: oblique;
@@ -335,7 +331,7 @@ button {
     margin: 0 auto;
 }
 
-#title-input {
+#navbar-title-input {
     width: 200px;
     margin-top: 5px;
     margin-bottom: 2px;
@@ -379,6 +375,14 @@ button {
     text-align: center;
 }
 
+
+#floating-empty-card {
+    position:fixed;
+    bottom:15px;
+    left:15px;
+    width:260px;
+    height:160px;
+
 #new-title-input {
     width: 100%;
     text-align: center;
@@ -391,8 +395,4 @@ button {
 
 }
 /*________MODAL END_____________*/
-#add-board-name {
-
-
-}
 

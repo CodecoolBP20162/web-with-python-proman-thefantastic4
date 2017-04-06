@@ -411,7 +411,6 @@ function PsqlState() {
             data: {title:title, action:"modify"},
             success:
                 function (response_data) {
-                    alert("board modified: " + response_data);
                     modified_board = response_data;
                 },
             error:
@@ -511,7 +510,7 @@ function DataLoader() {
                 },
             error:
                 function () {
-                    alert('move card not OK')
+                    alert('get backend status not OK')
                 }
         });
 

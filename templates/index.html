@@ -45,14 +45,11 @@
             </div>
             <div class=" col-lg-10 board-title-row">
                 <div class="title-container">
-                    <input id="title-input" maxlength="30" placeholder="BOARD TITLE" class="board-title">
+                    <input id="navbar-title-input" maxlength="30" placeholder="BOARD TITLE VARIABLE" class="navbar-board-title">
                 </div>
             </div>
             <div class="col-lg-1">
-                <a
-                        href="#"><img id="delete-button"
-                                      src="{{ url_for('static', filename="img/trash_recyclebin_empty_closed.png") }}"></a>
-
+                <a href="#"><img id="delete-button" src="{{ url_for('static', filename="img/trash_recyclebin_empty_closed.png") }}"></a>
             </div>
         </div>
         <div class="container">
@@ -81,13 +78,29 @@
         </div>
     </div>
 </div>
+
+<div id="floating-empty-card">
+    <li id="floating-li">
+        <div class="card">
+            <div class="floating-card-title">
+                <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
+            </div>
+            <div class="floating-card-description">
+                <textarea class="task" spellcheck=false rows="1" placeholder="write a task"></textarea>
+            </div>
+            <div>
+                <button class="glyphicon glyphicon-plus"></button>
+            </div>
+        </div>
+    </li>
+</div>
 </body>
 <footer>
     <button id="add-button" title="Add new card" type="button" class="btn btn-default" data-toggle="modal"
             data-target="#exampleModal" data-whatever="@mdo"><span id="add-icon"
                                                                    class="glyphicon glyphicon-plus"></span>
     </button>
-    <li id="1" style="display: none;">
+    <li id="empty-card-final" style="display: none;">
         <div class="card">
             <div class="card-title">
                 <textarea class="title-input" spellcheck=false rows="1" placeholder="card title"></textarea>
