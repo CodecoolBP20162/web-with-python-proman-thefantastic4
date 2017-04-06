@@ -139,21 +139,14 @@ textarea:hover {
 .navbar {
     background-image: none !important;
     border: none !important;
-    background-color: #2F51B5;
+    background-color: #0682b5;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
 }
 
-.board-title {
 
-    font-family: 'Josefin Sans', sans-serif;
-    font-style: oblique;
-    color: antiquewhite;
-    text-align: center;
-    padding-top: 15px;
-    font-size: 150%;
-    margin: auto;
 
-}
+
+
 
 .col-centered {
     float: none;
@@ -191,11 +184,7 @@ button {
     margin: 5px 5px;
 }
 
-.board-title {
 
-    text-align: center;
-    padding-top: 15px;
-}
 
 /* The side navigation menu */
 .sidenav {
@@ -205,10 +194,11 @@ button {
     z-index: 1; /* Stay on top */
     top: 80px;
     left: 0;
-    background-color: #2F51B5;
+    background-color: #0682b5;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    resize: vertical;
 }
 
 /* The navigation menu links */
@@ -287,7 +277,7 @@ button {
     border-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0;
-    background-color: #2F51B5;
+    background-color: #0682b5;
     height: 60px;
     position: fixed;
     margin-top: 300px;
@@ -327,31 +317,45 @@ button {
     margin-left: 3px;
 }
 
-#trash-button {
-    background-color: transparent !important;
-    background-size: 30%;
-    position: fixed;
-    width: 60px;
-    top: 0%;
-    right: 0%;
+/*------NAVBAR TITLE-------*/
+.board-title {
+
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: oblique;
+    color: antiquewhite;
     text-align: center;
-    height: 60px;
-    -webkit-filter: drop-shadow(4px 4px 4px #222) !important;
-    filter: drop-shadow(4px 4px 4px #222) !important;
+    padding-top: 15px;
+    font-size: 150%;
+    margin: auto;
+
+
+}
+.title-container {
+    width: 265px;
+    margin: 0 auto;
+}
+
+#title-input {
+    width: 200px;
+}
+
+#delete-button {
+    width: 30px;
+    border: 0;
 
 }
 
-#trash-icon {
-    font-size: 50px;
-    margin-left: 3px;
+#edit-button {
+    width: 30px;
+    border: 0;
 
 }
+/*------NAVBAR TITLE END-------*/
 
 .card-description {
 
     width: auto;
 }
-
 
 .remove-card {
 
@@ -368,6 +372,5 @@ button {
 
 #add-board-name {
 
-    
-}
 
+}

@@ -86,7 +86,7 @@ $(document).ready(function () {
         if (board_name.trim() != "") {
             var board_id = data_loader.create_board();
             data_loader.modify_board(board_id, board_name);
-            $('<a href="javascript:void(0)" class="menu-link" id="' + board_id + '">' + board_name + '<button value="delete"></a>').insertBefore('#add-board');
+            $('<a href="javascript:void(0)" class="menu-link" id="' + board_id + '">' + board_name + '</a>').insertBefore('#add-board');
 
             $('.menu-link').click(function () {
                 //var data_loader = new DataLoader("localstorage");
