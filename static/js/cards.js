@@ -42,24 +42,7 @@ $(document).ready(function () {
     }
 
     $('.menu-link').click(function () {
-        //var data_loader = new DataLoader("localstorage");
-        var board_html_id = $(this).attr('id');
-
-        var board = data_loader.get_board(board_html_id);
-        board = JSON.parse(board);
-        var board_title = board.title;
-
-        $('#navbar-title-input').val(board_title);
-        $('#delete-button').attr("value", board_html_id);
-
-        var all_cards = data_loader.get_all_cards(board.id);
-        all_cards = JSON.parse(all_cards);
-
-        data_loader.set_active_board(board.id);
-        var active_board = data_loader.get_active_board();
-
-        //fill_with_cards(all_cards);
-        status_checker(all_cards);
+        menuclickevent(this);
     });
 
     $("#trash-icon").click(function () {
@@ -68,7 +51,7 @@ $(document).ready(function () {
         location.reload();
     });
 
-    $('#add-button').click(function () {
+    /*$('#add-button').click(function () {
         var new_card = data_loader.create_card(data_loader.get_active_board());
         var empty_card = $('#empty-card-final');
         empty_card.clone().appendTo('#new-cards .sortable').removeAttr("style").attr("id", "li" + new_card);
@@ -78,38 +61,7 @@ $(document).ready(function () {
         $("#li" + new_card + " .title-input").html("");
         $("#li" + new_card + " .task").html("");
 
-    });
-
-    $('#add-board').click(function () {
-        var board_name = document.getElementById('add-board-name').value;
-        if (board_name.trim() != "") {
-            var board_id = data_loader.create_board();
-            data_loader.modify_board(board_id, board_name);
-            $('<a href="javascript:void(0)" class="menu-link" id="' + board_id + '">' + board_name + '</a>').insertBefore('#add-board');
-
-            $('.menu-link').click(function () {
-                //var data_loader = new DataLoader("localstorage");
-                var board_html_id = $(this).attr('id');
-
-                var board = data_loader.get_board(board_html_id);
-                board = JSON.parse(board);
-                var board_title = board.title;
-
-                $('.board-title').html(board_title);
-                $('title').html(board_title);
-
-                var all_cards = data_loader.get_all_cards(board.id);
-                all_cards = JSON.parse(all_cards);
-
-                data_loader.set_active_board(board.id);
-                var active_board = data_loader.get_active_board();
-
-                //fill_with_cards(all_cards);
-                status_checker(all_cards);
-            });
-
-        }       
-    });
+    });*/
 
     $("#navbar-title-input").blur(function() {
         var active_board = data_loader.get_active_board();
@@ -117,8 +69,52 @@ $(document).ready(function () {
             data_loader.modify_board(active_board, $("#navbar-title-input").val());
         }
     });
+
+    $("#delete-button").click(function() {
+        var active_board = data_loader.get_active_board()
+
+        if (active_board != 0) {
+            data_loader.remove_board(active_board);
+            location.reload();
+        }
+    });
+
+    $("#add-new-board").click(function() {
+        var board_name = document.getElementById('new-title-input').value;
+        console.log(board_name);
+
+        if (board_name.trim() != "") {
+            console.log("bejössz")
+            var board_id = data_loader.create_board();
+            data_loader.modify_board(board_id, board_name);
+            $("#mySidenav").append('<a href="javascript:void(0)" class="menu-link" id="' + board_id + '">' + board_name + '</a>');
+
+            $('.menu-link').click(function () {
+                menuclickevent(this);
+            });
+
+        }
+    });
 });
 
+var menuclickevent = function(link_tag) {
+    var board_html_id = $(link_tag).attr('id');
+
+    var board = data_loader.get_board(board_html_id);
+    board = JSON.parse(board);
+    var board_title = board.title;
+
+    $('#navbar-title-input').val(board_title);
+    $('#delete-button').attr("value", board_html_id);
+
+    var all_cards = data_loader.get_all_cards(board.id);
+    all_cards = JSON.parse(all_cards);
+
+    data_loader.set_active_board(board.id);
+    var active_board = data_loader.get_active_board();
+
+    status_checker(all_cards);
+};
 
 var modcard = function (card_id) {
     var title = $("#cardtitle" + card_id).val();
