@@ -80,7 +80,6 @@ $(document).ready(function () {
 
     });
 
-
     $('#add-board').click(function () {
         var board_name = document.getElementById('add-board-name').value;
         if (board_name.trim() != "") {
@@ -109,10 +108,8 @@ $(document).ready(function () {
                 status_checker(all_cards);
             });
 
-        }
-
+        }       
     });
-
 });
 
 
