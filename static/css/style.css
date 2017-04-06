@@ -337,17 +337,22 @@ button {
 
 #title-input {
     width: 200px;
+    margin-top: 5px;
+    margin-bottom: 2px;
 }
 
 #delete-button {
     width: 30px;
     border: 0;
+    padding-bottom: 5px;
+    padding-top: 13px;
 
 }
 
 #edit-button {
     width: 30px;
     border: 0;
+    padding-bottom: 5px;
 
 }
 /*------NAVBAR TITLE END-------*/
