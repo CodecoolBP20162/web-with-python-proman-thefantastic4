@@ -75,5 +75,5 @@ def is_psql_on():
     return "true"
 
 if __name__ == '__main__':
-    Builder().build_tables()
+    # Builder().build_tables()
     app.run(debug=True)
