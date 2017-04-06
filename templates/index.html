@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href='../static/css/style.css'>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
@@ -45,9 +45,11 @@
             </div>
             <div class=" col-lg-10 board-title-row">
                 <div class="title-container">
-                    <a href="#"><img id="edit-button" src="{{ url_for('static', filename="img/pen_icon.jpg") }}"></a>
-                    <input id="navbar-title-input" maxlength="30" placeholder="BOARD TITLE VARIABLE" class="navbar-board-title"><a href="#"><img id="delete-button" src="{{ url_for('static', filename="img/trash_recyclebin_empty_closed.png") }}"></a>
+                    <input id="navbar-title-input" maxlength="30" placeholder="BOARD TITLE VARIABLE" class="navbar-board-title">
                 </div>
+            </div>
+            <div class="col-lg-1">
+                <a href="#"><img id="delete-button" src="{{ url_for('static', filename="img/trash_recyclebin_empty_closed.png") }}"></a>
             </div>
         </div>
         <div class="container">
@@ -94,8 +96,9 @@
 </div>
 </body>
 <footer>
-    <button id="add-button" title="Add new card" type="button" class="btn btn-default"><span id="add-icon"
-                                                                                             class="glyphicon glyphicon-plus"></span>
+    <button id="add-button" title="Add new card" type="button" class="btn btn-default" data-toggle="modal"
+            data-target="#exampleModal" data-whatever="@mdo"><span id="add-icon"
+                                                                   class="glyphicon glyphicon-plus"></span>
     </button>
     <li id="empty-card-final" style="display: none;">
         <div class="card">
@@ -111,6 +114,27 @@
             </div>
         </div>
     </li>
+    <!--MODAL-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="exampleModalLabel">Add name for your new table</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-container">
+                        <input id="new-title-input" maxlength="60" placeholder="your new board title">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="modal-add-button btn btn-default">ADD</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </footer>
 <script>
 </script>

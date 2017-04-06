@@ -50,6 +50,7 @@ $(document).ready(function () {
         var board_title = board.title;
 
         $('#navbar-title-input').val(board_title);
+        $('#delete-button').attr("value", board_html_id);
 
         var all_cards = data_loader.get_all_cards(board.id);
         all_cards = JSON.parse(all_cards);
