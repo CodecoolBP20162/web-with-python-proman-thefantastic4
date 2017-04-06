@@ -369,8 +369,25 @@ button {
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     filter: drop-shadow(1px 1px 1px #222);
 }
+/*__________MODAL_______________*/
+.modal-body-container{
+    text-align: center;
+}
 
+#new-title-input {
+    width: 100%;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 150%;
+}
+
+.modal-add-button {
+    background-color: #0682b5 !important;
+
+}
+/*________MODAL END_____________*/
 #add-board-name {
 
 
 }
+
