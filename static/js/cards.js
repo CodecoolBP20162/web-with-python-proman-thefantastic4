@@ -80,15 +80,14 @@ $(document).ready(function () {
 
     });
 
-    $('#add-board').click(function(){
-        var title = prompt("Please give me a board name!");
-        if (title.trim() != "") {
+    $('#add-board').click(function () {
+        var board_name = document.getElementById('add-board-name').value;
+        if (board_name.trim() != "") {
             var board_id = data_loader.create_board();
-            console.log(board_id + " " + title);
-            data_loader.modify_board(board_id, title);
-            $('<a href="javascript:void(0)" class="menu-link" id="'+board_id+'">' + title + '</a>').insertBefore('#add-board');
-            
-            $('.menu-link').click(function(){
+            data_loader.modify_board(board_id, board_name);
+            $('<a href="javascript:void(0)" class="menu-link" id="' + board_id + '">' + board_name + '</a>').insertBefore('#add-board');
+
+            $('.menu-link').click(function () {
                 //var data_loader = new DataLoader("localstorage");
                 var board_html_id = $(this).attr('id');
 
@@ -108,6 +107,7 @@ $(document).ready(function () {
                 //fill_with_cards(all_cards);
                 status_checker(all_cards);
             });
+
         }       
     });
 });

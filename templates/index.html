@@ -28,8 +28,8 @@
 <body>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="javascript:void(0)" id="add-board" class="addbtn">+</a>
-    <input id="add-board-name" value="Add your board a name!">
+    <!--<a href="javascript:void(0)" id="add-board" class="addbtn">+</a>-->
+    <!--<input id="add-board-name" value="Add your board a name!">-->
 </div>
 <span onclick="openNav()"><button id="open-button" title="Boards menu"
                                   class="sidebar-open-button glyphicon glyphicon-menu-right"></button></span>
@@ -43,12 +43,11 @@
                     </div>
                 </a>
             </div>
-            <div class=" col-lg-11 col-centered">
-                <p class="board-title">BOARD TITLE VARIABLE</p>
-                <button id="trash-button" title="Delete board" type="button" class="btn btn-default"><span
-                        id="trash-icon"
-                        class="glyphicon glyphicon-trash"></span>
-                </button>
+            <div class=" col-lg-10 board-title-row">
+                <div class="title-container">
+                    <a href="#"><img id="edit-button" src="{{ url_for('static', filename="img/pen_icon.jpg") }}"></a>
+                    <input id="title-input" maxlength="30" placeholder="BOARD TITLE VARIABLE" class="board-title"><a href="#"><img id="delete-button" src="{{ url_for('static', filename="img/trash_recyclebin_empty_closed.png") }}"></a>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -79,10 +78,8 @@
 </div>
 </body>
 <footer>
-    <button id="add-button" title="Add new card" type="button" class="btn btn-default"><span id="add-icon" class="glyphicon glyphicon-plus"></span>
-    </button>
-    <button id="trash-button" title="Delete board" type="button" class="btn btn-default"><span id="trash-icon"
-                                                                                               class="glyphicon glyphicon-trash"></span>
+    <button id="add-button" title="Add new card" type="button" class="btn btn-default"><span id="add-icon"
+                                                                                             class="glyphicon glyphicon-plus"></span>
     </button>
     <li id="1" style="display: none;">
         <div class="card">
@@ -94,7 +91,7 @@
                           placeholder="write a task"></textarea>
             </div>
             <div>
-                <button class="remove-card">
+                <button class="remove-card"></button>
             </div>
         </div>
     </li>
