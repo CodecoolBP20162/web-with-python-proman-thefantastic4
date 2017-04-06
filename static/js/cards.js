@@ -76,7 +76,9 @@ $(document).ready(function () {
     $("#navbar-title-input").blur(function() {
         var active_board = data_loader.get_active_board();
         if (active_board != 0) {
-            data_loader.modify_board(active_board, $("#navbar-title-input").val());
+            var new_title = $("#navbar-title-input").val();
+            data_loader.modify_board(active_board, new_title);
+            $("#"+active_board).html(new_title)
         }
     });
 
