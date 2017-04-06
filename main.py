@@ -15,38 +15,59 @@ def index():
 
 @app.route('/boards', methods=["GET"])
 def boards():
-    return ApiQueries().get_all_boards()
+    return ApiQueries(["board"]).get_all_boards()
 
 
 @app.route('/board/<int:board_id>', methods=['GET'])
 def get_board(board_id):
-    return ApiQueries().get_board(board_id)
+    return ApiQueries(["board"]).get_board(board_id)
 
 
-@app.route('/boards/<int:board_id>', methods=['POST'])
+@app.route('/board/<board_id>', methods=['POST'])
 def remove_or_modify_board(board_id):
     action = request.form.get('action')
 
     if action == "modify":
-        return ApiQueries().modify_board(board_id, request.form.get('title'))
+        return ApiQueries(["board"]).modify_board(board_id, request.form["title"])
 
     elif action == "delete":
-        return ApiQueries().delete_board(board_id)
+        return ApiQueries(["board", "card"]).delete_board(board_id)
 
 
-@app.route('/get-cards/<int:board_id>', methods=['GET'])
+@app.route('/cards/<int:board_id>', methods=['GET'])
 def get_cards(board_id):
-    return ApiQueries().get_cards(board_id)
+    return ApiQueries(["card", "status"]).get_cards(board_id)
+
+
+@app.route('/card/<int:card_id>', methods=["POST"])
+def modify_and_remove_card(card_id):
+    if request.form['action'] == "create":
+        board_id = card_id
+        return ApiQueries(["card", "status"]).create_card(board_id)
+
+    elif request.form["action"] == "modify":
+        return ApiQueries(["card"]).modify_card(request.form["title"], request.form["description"], card_id)
+
+    elif request.form["action"] == "delete":
+        return ApiQueries(["card"]).delete_card(card_id)
+
+    elif request.form['action'] == "move":
+        return ApiQueries(["card", "status"]).move_card(card_id, request.form['new_status'], request.form['new_position'])
+
+
+@app.route('/card/<int:card_id>', methods=['GET'])
+def get_card(card_id):
+    return ApiQueries(['card', 'status']).get_card(card_id)
+
+
+@app.route('/card', methods=['POST'])
+def create_card(board_id):
+    return ApiQueries(["card", "board"]).create_card(board_id)
 
 
 @app.route('/board', methods=['POST'])
 def create_board():
-    return ApiQueries().create_board()
-
-
-# @app.route('/create/card')
-# def create_board():
-#     return ApiQueries().create_card()
+    return ApiQueries(["board"]).create_board()
 
 
 @app.route('/is-psql-on/', methods=['GET'])

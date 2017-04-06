@@ -51,6 +51,20 @@ $(document).ready(function () {
 
         $('.board-title').html(board_title);
         $('title').html(board_title);
+    //     $().html();
+    //     $().html();
+    //         $("#delete").click(function() {
+    //     var board_id = $(this).attr("name")
+    //     get_board("delete",)
+
+    // })
+
+
+    // $("#modify").click(function() {
+    //     var board_id = $(this).attr("id")
+    //     get_board("delete",)
+
+    // })
 
         var all_cards = data_loader.get_all_cards(board.id);
         all_cards = JSON.parse(all_cards);
@@ -80,14 +94,15 @@ $(document).ready(function () {
 
     });
 
-    $('#add-board').click(function () {
-        var board_name = document.getElementById('add-board-name').value;
-        if (board_name.trim() != "") {
+    $('#add-board').click(function(){
+        var title = prompt("Please give me a board name!");
+        if (title.trim() != "") {
             var board_id = data_loader.create_board();
-            data_loader.modify_board(board_id, board_name);
-            $('<a href="javascript:void(0)" class="menu-link" id="' + board_id + '">' + board_name + '<button value="delete"></a>').insertBefore('#add-board');
-
-            $('.menu-link').click(function () {
+            console.log(board_id + " " + title);
+            data_loader.modify_board(board_id, title);
+            $('<a href="javascript:void(0)" class="menu-link" id="'+board_id+'">' + title + '</a>').insertBefore('#add-board');
+            
+            $('.menu-link').click(function(){
                 //var data_loader = new DataLoader("localstorage");
                 var board_html_id = $(this).attr('id');
 
@@ -107,12 +122,8 @@ $(document).ready(function () {
                 //fill_with_cards(all_cards);
                 status_checker(all_cards);
             });
-
-        }
-
+        }       
     });
-
-
 });
 
 
