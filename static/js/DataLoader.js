@@ -496,13 +496,35 @@ function PsqlState() {
 }
 
 
-function DataLoader(state) {
+function DataLoader() {
+
+    this.get_backend_status = function() {
+        var response = "";
+
+        $.ajax({
+            url: "/is-psql-on",
+            type: "GET",
+            async: false,
+            success:
+                function (response_data) {
+                    response = response_data;
+                },
+            error:
+                function () {
+                    alert('move card not OK')
+                }
+        });
+
+        return response;
+    };
 
     this.instantiate_state = function() {
-        if (this.state == "localstorage") {
+        backend_on = this.get_backend_status();
+
+        if (backend_on == "false") {
             this.state = new LocalStorageState();
 
-        } else if (this.state == "psql") {
+        } else if (backend_on == "true") {
             this.state = new PsqlState();
 
         }
@@ -562,8 +584,7 @@ function DataLoader(state) {
         return this.state.get_active_board();
     };
 
-    this.state = state;
     this.instantiate_state();
 }
 
-var data_loader = new DataLoader("psql");
+var data_loader = new DataLoader();

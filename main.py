@@ -72,8 +72,7 @@ def create_board():
 
 @app.route('/is-psql-on/', methods=['GET'])
 def is_psql_on():
-    return "false"
-
+    return "true"
 
 if __name__ == '__main__':
     Builder().build_tables()
