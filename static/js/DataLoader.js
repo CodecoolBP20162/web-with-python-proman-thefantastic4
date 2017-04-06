@@ -291,7 +291,7 @@ function PsqlState() {
         var board = "";
 
         $.ajax({
-            url: "/boards/"+board_id, //restapi-s
+            url: "/boards/"+id,
             type: "POST",
             data: {board_id: id},
             async: false,
@@ -410,10 +410,10 @@ function PsqlState() {
     };
 
     this.modify_board = function(board_id, title) {
-
+        alert(board_id + " " + title);
         var modified_board = "";
         $.ajax({
-            url: "/card/" + board_id,
+            url: "/board/" + board_id,
             type: "POST",
             async: false,
             data: {board_id:board_id,title:title,command:"modify"},
