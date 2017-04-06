@@ -320,19 +320,18 @@ button {
     font-style: oblique;
     color: antiquewhite;
     text-align: center;
-    padding-top: 15px;
-    font-size: 150%;
+    font-size: 180%;
     margin: auto;
 
 
 }
 .title-container {
-    width: 265px;
+    width: 400px;
     margin: 0 auto;
 }
 
 #navbar-title-input {
-    width: 200px;
+    width: 400px;
     margin-top: 5px;
     margin-bottom: 2px;
 }
@@ -345,12 +344,6 @@ button {
 
 }
 
-#edit-button {
-    width: 30px;
-    border: 0;
-    padding-bottom: 5px;
-
-}
 /*------NAVBAR TITLE END-------*/
 
 .card-description {
@@ -385,7 +378,7 @@ button {
 }
 
 #new-title-input {
-    width: 100%;
+    width: 70%;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 150%;
@@ -397,3 +390,7 @@ button {
 }
 /*________MODAL END_____________*/
 
+/*________EMPTY CARD____________*/
+#floating-empty-card .card:hover {
+    cursor: default !important;
+}
