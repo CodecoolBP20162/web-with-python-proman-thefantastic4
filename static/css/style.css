@@ -378,10 +378,14 @@ button {
 
 #floating-empty-card {
     position:fixed;
-    bottom:15px;
     left:15px;
     width:260px;
     height:160px;
+}
+
+#floating-li {
+    position: fixed;
+    bottom:7px;
 }
 
 #new-title-input {

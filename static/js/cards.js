@@ -51,17 +51,27 @@ $(document).ready(function () {
         location.reload();
     });
 
-    /*$('#add-button').click(function () {
-        var new_card = data_loader.create_card(data_loader.get_active_board());
-        var empty_card = $('#empty-card-final');
-        empty_card.clone().appendTo('#new-cards .sortable').removeAttr("style").attr("id", "li" + new_card);
+    $('#add-new-card').click(function () {
+        var active_board = data_loader.get_active_board();
 
-        $("#li" + new_card + " .title-input").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtitle" + new_card);
-        $("#li" + new_card + " .task").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtask" + new_card);
-        $("#li" + new_card + " .title-input").html("");
-        $("#li" + new_card + " .task").html("");
+        if (active_board != 0) {
+            var card_title = $("#new-card-title").val().trim();
+            var card_desc = $("#new-card-desc").val().trim();
+            $("#new-card-title").val("");
+            $("#new-card-desc").val("");
+            var new_card = data_loader.create_card(active_board);
 
-    });*/
+            data_loader.modify_card(new_card, card_title, card_desc);
+            var empty_card = $('#empty-card-final');
+            empty_card.clone().appendTo('#new-cards .sortable').removeAttr("style").attr("id", "li" + new_card);
+
+            $("#li" + new_card + " .title-input").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtitle" + new_card);
+            $("#li" + new_card + " .task").attr("onfocusout", "modcard(" + new_card + ")").attr("id", "cardtask" + new_card);
+            $("#li" + new_card + " .title-input").html(card_title);
+            $("#li" + new_card + " .task").html(card_desc);
+        }
+
+    });
 
     $("#navbar-title-input").blur(function() {
         var active_board = data_loader.get_active_board();
@@ -95,26 +105,28 @@ $(document).ready(function () {
 
         }
     });
+
+    var menuclickevent = function(link_tag) {
+        var board_html_id = $(link_tag).attr('id');
+
+        var board = data_loader.get_board(board_html_id);
+        board = JSON.parse(board);
+        var board_title = board.title;
+
+        $('#navbar-title-input').val(board_title);
+        $('#delete-button').attr("value", board_html_id);
+
+        var all_cards = data_loader.get_all_cards(board.id);
+        all_cards = JSON.parse(all_cards);
+
+        data_loader.set_active_board(board.id);
+        var active_board = data_loader.get_active_board();
+
+        status_checker(all_cards);
+    };
 });
 
-var menuclickevent = function(link_tag) {
-    var board_html_id = $(link_tag).attr('id');
 
-    var board = data_loader.get_board(board_html_id);
-    board = JSON.parse(board);
-    var board_title = board.title;
-
-    $('#navbar-title-input').val(board_title);
-    $('#delete-button').attr("value", board_html_id);
-
-    var all_cards = data_loader.get_all_cards(board.id);
-    all_cards = JSON.parse(all_cards);
-
-    data_loader.set_active_board(board.id);
-    var active_board = data_loader.get_active_board();
-
-    status_checker(all_cards);
-};
 
 var modcard = function (card_id) {
     var title = $("#cardtitle" + card_id).val();
