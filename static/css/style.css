@@ -337,17 +337,22 @@ button {
 
 #title-input {
     width: 200px;
+    margin-top: 5px;
+    margin-bottom: 2px;
 }
 
 #delete-button {
     width: 30px;
     border: 0;
+    padding-bottom: 5px;
+    padding-top: 13px;
 
 }
 
 #edit-button {
     width: 30px;
     border: 0;
+    padding-bottom: 5px;
 
 }
 /*------NAVBAR TITLE END-------*/
@@ -369,8 +374,25 @@ button {
     -webkit-filter: drop-shadow(1px 1px 1px #222);
     filter: drop-shadow(1px 1px 1px #222);
 }
+/*__________MODAL_______________*/
+.modal-body-container{
+    text-align: center;
+}
 
+#new-title-input {
+    width: 100%;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 150%;
+}
+
+.modal-add-button {
+    background-color: #0682b5 !important;
+
+}
+/*________MODAL END_____________*/
 #add-board-name {
 
 
 }
+

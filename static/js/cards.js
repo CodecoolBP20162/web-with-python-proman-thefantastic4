@@ -49,8 +49,10 @@ $(document).ready(function () {
         board = JSON.parse(board);
         var board_title = board.title;
 
-        $('.board-title').html(board_title);
+        $('#title-input').attr("value", board_title);
         $('title').html(board_title);
+        $('#delete-button').attr("value", board_html_id);
+        $('#edit-button').attr("value", board_html_id);
 
         var all_cards = data_loader.get_all_cards(board.id);
         all_cards = JSON.parse(all_cards);
