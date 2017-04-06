@@ -23,12 +23,12 @@ def get_board(board_id):
     return ApiQueries(["board"]).get_board(board_id)
 
 
-@app.route('/boards/<int:board_id>', methods=['POST'])
+@app.route('/board/<board_id>', methods=['POST'])
 def remove_or_modify_board(board_id):
     action = request.form.get('action')
 
     if action == "modify":
-        return ApiQueries(["board"]).modify_board(board_id, request.form.get('title'))
+        return ApiQueries(["board"]).modify_board(board_id, request.form["title"])
 
     elif action == "delete":
         return ApiQueries(["board"]).delete_board(board_id)
@@ -52,7 +52,7 @@ def create_card(board_id):
     return ApiQueries(["card", "board"]).create_card(board_id)
 
 
-@app.route('/board', methods=['POST'])
+@app.route('/board', methods=['GET'])
 def create_board():
     return ApiQueries(["board"]).create_board()
 

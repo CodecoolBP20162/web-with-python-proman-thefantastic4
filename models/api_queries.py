@@ -72,11 +72,11 @@ class ApiQueries:
 
     def modify_board(self, board_id, title):
         board = self.board.select().where(self.board.id == board_id)
-
+        #response_data = []
         if board.exists():
             board.title = title
             board.save()
-
+            #response_data.append({board_id: board.id, title: board.title})
             return "true"
         return "false"
 
