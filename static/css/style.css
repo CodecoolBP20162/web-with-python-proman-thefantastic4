@@ -2,7 +2,7 @@
 body {
 
     height: 100%;
-    background: white;
+    background: #fcfcfc;
     background-size: cover;
 }
 
@@ -110,7 +110,7 @@ textarea {
 }
 
 textarea::-webkit-input-placeholder {
-    color: rgba(153, 153, 153, 0.64);
+    color: rgba(153, 153, 153, 0.3);
 }
 
 textarea:hover {
@@ -304,7 +304,7 @@ button {
     text-align: right;
     height: 80px;
     margin-left: -22px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);*/
 
 }
 
@@ -318,7 +318,7 @@ button {
 
     font-family: 'Josefin Sans', sans-serif;
     font-style: oblique;
-    color: antiquewhite;
+    color: #191919;
     text-align: center;
     font-size: 180%;
     margin: auto;
@@ -368,17 +368,12 @@ button {
     text-align: center;
 }
 
-
-#floating-empty-card {
+#floating-li {
     position:fixed;
     left:15px;
+    bottom:15px;
     width:260px;
     height:160px;
-}
-
-#floating-li {
-    position: fixed;
-    bottom:7px;
 }
 
 #new-title-input {
@@ -395,6 +390,6 @@ button {
 /*________MODAL END_____________*/
 
 /*________EMPTY CARD____________*/
-#floating-empty-card .card:hover {
+#floating-li .card:hover {
     cursor: default !important;
 }

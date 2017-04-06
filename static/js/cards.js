@@ -57,8 +57,8 @@ $(document).ready(function () {
         if (active_board != 0) {
             var card_title = $("#new-card-title").val().trim();
             var card_desc = $("#new-card-desc").val().trim();
-            $("#new-card-title").val("");
-            $("#new-card-desc").val("");
+            $("#new-card-title").val("").removeAttr("style");
+            $("#new-card-desc").val("").removeAttr("style");
             var new_card = data_loader.create_card(active_board);
 
             data_loader.modify_card(new_card, card_title, card_desc);
@@ -124,6 +124,13 @@ $(document).ready(function () {
 
         status_checker(all_cards);
     };
+
+    $(".logo").click(function() {
+        event.preventDefault();
+         $('html, body').animate({
+            scrollTop: 0
+        }, 200);
+    });
 });
 
 
